@@ -36,6 +36,13 @@
                         'dalam': '0 12px 35px rgba(10, 77, 39, 0.12)',
                         'tombol': '0 4px 12px rgba(11, 93, 48, 0.15)',
                         'tombolHover': '0 6px 20px rgba(16, 185, 129, 0.22)'
+                    },
+                    // Penyesuaian titik henti agar lebih pas di HP
+                    screens: {
+                        'xs': '360px',
+                        'sm': '480px',
+                        'md': '768px',
+                        'lg': '1024px'
                     }
                 }
             }
@@ -54,22 +61,24 @@
                 width: 80px;
                 background: linear-gradient(90deg, #0B5D30, #10B981);
                 border-radius: 9999px;
+                margin-left: auto;
+                margin-right: auto;
             }
 
             /* Navigasi */
             .nav-link {
-                @apply px-4 py-2 rounded-full font-medium text-gray-700 transition-all duration-300 hover:bg-utama-abuMuda hover:text-utama-hijauSedang hover:shadow-lembut;
+                @apply px-3 py-2 rounded-full font-medium text-gray-700 transition-all duration-300 hover:bg-utama-abuMuda hover:text-utama-hijauSedang hover:shadow-lembut text-sm md:text-base;
             }
 
             /* Tombol */
             .btn-utama {
-                @apply bg-utama-hijauSedang hover:bg-utama-hijauMint text-utama-putih font-medium py-2.5 px-6 md:py-3 md:px-8 rounded-full shadow-tombol hover:shadow-tombolHover transition-all duration-300 transform hover:-translate-y-0.5;
+                @apply bg-utama-hijauSedang hover:bg-utama-hijauMint text-utama-putih font-medium py-2.5 px-5 md:py-3 md:px-7 rounded-full shadow-tombol hover:shadow-tombolHover transition-all duration-300 transform hover:-translate-y-0.5 text-sm md:text-base;
             }
             .btn-kedua {
-                @apply bg-utama-putih hover:bg-utama-abuMuda text-utama-hijauSedang font-medium py-2.5 px-6 md:py-3 md:px-8 rounded-full border border-utama-hijauSedang/20 shadow-lembut hover:shadow-sedang transition-all duration-300;
+                @apply bg-utama-putih hover:bg-utama-abuMuda text-utama-hijauSedang font-medium py-2.5 px-5 md:py-3 md:px-7 rounded-full border border-utama-hijauSedang/20 shadow-lembut hover:shadow-sedang transition-all duration-300 w-full justify-center text-center text-sm md:text-base;
             }
             .btn-unduh {
-                @apply bg-utama-hijauSedang hover:bg-utama-hijauMint text-utama-putih font-medium py-2.5 px-6 md:py-3 md:px-8 rounded-full shadow-tombol hover:shadow-tombolHover transition-all duration-300 transform hover:-translate-y-0.5 inline-flex items-center gap-2;
+                @apply bg-utama-hijauSedang hover:bg-utama-hijauMint text-utama-putih font-medium py-2.5 px-5 md:py-3 md:px-7 rounded-full shadow-tombol hover:shadow-tombolHover transition-all duration-300 transform hover:-translate-y-0.5 inline-flex items-center justify-center gap-2 w-full text-sm md:text-base;
             }
 
             /* Animasi muncul */
@@ -94,18 +103,25 @@
             .lokasi-icon {
                 @apply w-8 h-8 md:w-9 md:h-9 rounded-full bg-white/20 flex items-center justify-center overflow-hidden transition-all duration-300 hover:bg-white;
             }
+
+            /* Penyesuaian teks untuk HP */
+            @media (max-width: 480px) {
+                h2 { font-size: 1.75rem !important; }
+                h3 { font-size: 1.5rem !important; }
+                p { font-size: 0.95rem !important; }
+            }
         }
     </style>
 </head>
 <body class="font-inter bg-utama-putih text-gray-800 pola-latar">
 
     <!-- Navigasi -->
-    <header class="sticky top-0 z-50 bg-utama-putih/90 backdrop-blur-md shadow-lembut">
-        <div class="container mx-auto px-4 md:px-6 lg:px-12">
-            <nav class="flex justify-between items-center h-16 md:h-20 lg:h-24">
+    <header class="sticky top-0 z-50 bg-utama-putih/95 backdrop-blur-md shadow-lembut">
+        <div class="container mx-auto px-3 sm:px-4 md:px-6 lg:px-12">
+            <nav class="flex justify-between items-center h-14 sm:h-16 md:h-20 lg:h-24">
                 <!-- Logo & Nama -->
-                <div class="flex items-center gap-3 md:gap-4">
-                    <div class="w-10 h-10 md:w-12 md:h-12 rounded-2xl overflow-hidden shadow-sedang">
+                <div class="flex items-center gap-2 sm:gap-3 md:gap-4">
+                    <div class="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-2xl overflow-hidden shadow-sedang">
                         <img 
                             src="assets/images/logo sunan.jpg" 
                             alt="Logo Ponpes Sunan Gringsing" 
@@ -113,7 +129,7 @@
                         >
                     </div>
                     <div>
-                        <h1 class="text-base md:text-lg lg:text-xl font-bold text-utama-hijauTua tracking-wide">PONPES SUNAN GRINGSING</h1>
+                        <h1 class="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-utama-hijauTua tracking-tight sm:tracking-wide">PONPES SUNAN GRINGSING</h1>
                     </div>
                 </div>
 
@@ -128,13 +144,13 @@
                 </div>
 
                 <!-- Tombol Menu HP -->
-                <button id="tombolMenu" class="md:hidden text-utama-hijauSedang text-2xl">☰</button>
+                <button id="tombolMenu" class="md:hidden text-utama-hijauSedang text-xl sm:text-2xl">☰</button>
             </nav>
         </div>
 
         <!-- Menu Mobile -->
         <div id="menuHP" class="hidden bg-utama-putih shadow-sedang absolute w-full left-0 rounded-b-4xl overflow-hidden z-40">
-            <div class="container mx-auto px-4 py-4 flex flex-col gap-2">
+            <div class="container mx-auto px-3 sm:px-4 py-3 sm:py-4 flex flex-col gap-2">
                 <a href="index.html" class="nav-link text-center py-2.5">Beranda</a>
                 <a href="profil.html" class="nav-link text-center py-2.5">Profil</a>
                 <a href="program.html" class="nav-link text-center py-2.5">Program</a>
@@ -146,82 +162,83 @@
     </header>
 
     <!-- Bagian Judul Halaman -->
-    <section class="bg-utama-abuMuda py-12 md:py-16">
-        <div class="container mx-auto px-4 md:px-6 lg:px-12 text-center muncul">
-            <h2 class="text-[clamp(2rem,5vw,3rem)] font-extrabold text-utama-hijauTua mb-4">Pendaftaran Santri Baru</h2>
-            <div class="garis-pemisah mx-auto mb-6"></div>
-            <p class="text-base md:text-lg text-gray-700 max-w-2xl mx-auto">Penerimaan santri baru Tahun Ajaran 2026/2027 sudah dibuka. Jadilah bagian dari keluarga besar Pondok Pesantren Sunan Gringsing.</p>
+    <section class="bg-utama-abuMuda py-8 sm:py-10 md:py-16">
+        <div class="container mx-auto px-3 sm:px-4 md:px-6 lg:px-12 text-center muncul">
+            <h2 class="text-[clamp(1.75rem,5vw,3rem)] font-extrabold text-utama-hijauTua mb-3 sm:mb-4">Pendaftaran Santri Baru</h2>
+            <div class="garis-pemisah mx-auto mb-4 sm:mb-6"></div>
+            <p class="text-sm sm:text-base md:text-lg text-gray-700 max-w-2xl mx-auto px-2">Penerimaan santri baru Tahun Ajaran 2026/2027 sudah dibuka. Jadilah bagian dari keluarga besar Pondok Pesantren Sunan Gringsing.</p>
         </div>
     </section>
 
     <!-- Bagian Brosur & Informasi -->
-    <section class="py-12 md:py-16 lg:py-20">
-        <div class="container mx-auto px-4 md:px-6 lg:px-12">
+    <section class="py-8 sm:py-12 md:py-16 lg:py-20">
+        <div class="container mx-auto px-3 sm:px-4 md:px-6 lg:px-12">
             <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
                 
                 <!-- Brosur Pendaftaran -->
-                <div class="muncul" style="animation-delay: 0.2s">
-                    <div class="bg-white p-3 md:p-4 rounded-2xl shadow-dalam border border-gray-100">
+                <div class="muncul order-1 md:order-none" style="animation-delay: 0.2s">
+                    <div class="bg-white p-2 sm:p-3 md:p-4 rounded-xl sm:rounded-2xl shadow-dalam border border-gray-100">
                         <img 
                             src="assets/images/brosurpendaftran.png" 
                             alt="Brosur Pendaftaran Santri Baru 2026/2027" 
-                            class="w-full h-auto rounded-xl object-contain"
+                            class="w-full h-auto rounded-lg sm:rounded-xl object-contain"
+                            loading="lazy"
                         >
                     </div>
-                    <p class="text-center text-sm text-gray-500 mt-3">Brosur Pendaftaran Santri Baru</p>
+                    <p class="text-center text-xs sm:text-sm text-gray-500 mt-2 sm:mt-3">Brosur Pendaftaran Santri Baru</p>
                 </div>
 
                 <!-- Keterangan & Tautan -->
-                <div class="muncul" style="animation-delay: 0.4s">
-                    <h3 class="text-2xl md:text-3xl font-bold text-utama-hijauTua mb-6">Informasi Lengkap Pendaftaran</h3>
+                <div class="muncul order-2 md:order-none" style="animation-delay: 0.4s">
+                    <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-utama-hijauTua mb-5 sm:mb-6 text-center md:text-left">Informasi Lengkap Pendaftaran</h3>
                     
-                    <div class="space-y-4 text-gray-700 text-base md:text-lg leading-relaxed mb-8">
+                    <div class="space-y-3 sm:space-y-4 text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8 bg-utama-abuMuda/50 p-4 sm:p-5 rounded-2xl">
                         <p>📅 <strong>Waktu Pendaftaran:</strong> 1 Juni - 30 Juli 2026</p>
                         <p>🎓 <strong>Program:</strong> Ngaji Kitab Kuning & Tahfidz Juz 30</p>
                         <p>💰 <strong>Biaya Pendaftaran:</strong> Rp 50.000</p>
                         <p>💸 <strong>Biaya Perbulan:</strong> Rp 300.000</p>
                         <p>📍 <strong>Alamat:</strong> Dusun III, Gemuruh, Kec. Padamara, Kab. Purbalingga, Jawa Tengah</p>
-                        <p>📞 <strong>Kontak:</strong> +62 857-8659-4458 | Instagram: pp_sunangringsing</p>
+                        <p>📞 <strong>Kontak:</strong> +62 857-8659-4458 <br class="md:hidden"> Instagram: pp_sunangringsing</p>
                     </div>
 
                     <!-- Tautan Google Drive -->
-                    <div class="bg-utama-abuMuda p-5 md:p-6 rounded-3xl shadow-lembut mb-6 border-l-4 border-utama-hijauMint">
-                        <h4 class="text-lg md:text-xl font-semibold text-utama-hijauTua mb-3">📂 Unduh Dokumen Pendaftaran</h4>
-                        <p class="text-gray-600 mb-4">Berisi panduan, formulir, dan persyaratan pendaftaran lengkap</p>
+                    <div class="bg-utama-abuMuda p-4 sm:p-5 md:p-6 rounded-2xl sm:rounded-3xl shadow-lembut mb-5 sm:mb-6 border-l-4 border-utama-hijauMint">
+                        <h4 class="text-base sm:text-lg md:text-xl font-semibold text-utama-hijauTua mb-2 sm:mb-3">📂 Unduh Dokumen Pendaftaran</h4>
+                        <p class="text-gray-600 mb-3 sm:mb-4 text-sm sm:text-base">Berisi panduan, formulir, dan persyaratan pendaftaran lengkap</p>
                         <a href="https://drive.google.com/drive/folders/1zuovE_OxXvKapwO5P-4p5YrnH9otzkv0" target="_blank" class="btn-unduh">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
                                 <polyline points="13,2 13,9 20,9"></polyline>
                             </svg>
                             Buka & Unduh Dokumen
                         </a>
-                        <p class="text-xs text-gray-500 mt-3">*Tautan akan terbuka di tab baru</p>
+                        <p class="text-xs text-gray-500 mt-2 sm:mt-3">*Tautan akan terbuka di tab baru</p>
                     </div>
 
-                    <a href="https://forms.gle/2PfMybVjMLAVyX2T6" target="_blank" class="btn-kedua w-full justify-center">Isi Formulir Online</a>
+                    <a href="https://forms.gle/2PfMybVjMLAVyX2T6" target="_blank" class="btn-kedua">Isi Formulir Online</a>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- Footer (Sama persis seperti halaman Beranda) -->
+    <!-- Footer -->
     <footer class="bg-gradient-to-br from-utama-hijauTua to-utama-hijauSedang text-utama-putih py-6 md:py-8">
-        <div class="max-w-4xl mx-auto px-5 md:px-8">
-            <div class="grid md:grid-cols-3 gap-5 md:gap-6 text-center md:text-left">
+        <div class="max-w-4xl mx-auto px-4 sm:px-5 md:px-8">
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 text-center sm:text-left">
                 <!-- Kolom 1: Tentang -->
                 <div>
-                    <h4 class="text-lg md:text-xl font-bold mb-2">Ponpes Sunan Gringsing</h4>
-                    <p class="text-white/90 leading-relaxed text-sm">Mencetak generasi yang berilmu, berakhlak mulia, dan bermanfaat bagi agama, bangsa, dan negara.</p>
+                    <h4 class="text-base sm:text-lg md:text-xl font-bold mb-2">Ponpes Sunan Gringsing</h4>
+                    <p class="text-white/90 leading-relaxed text-xs sm:text-sm">Mencetak generasi yang berilmu, berakhlak mulia, dan bermanfaat bagi agama, bangsa, dan negara.</p>
                 </div>
 
                 <!-- Kolom 2: Lokasi & Maps -->
                 <div>
-                    <h5 class="text-base md:text-lg font-semibold mb-2">Lokasi Kami</h5>
+                    <h5 class="text-sm sm:text-base md:text-lg font-semibold mb-2">Lokasi Kami</h5>
                     <a 
                         href="https://www.google.com/maps/place/J8FW%2B63F+Gemuruh,+Padamara,+Kabupaten+Purbalingga,+Jawa+Tengah" 
                         target="_blank" 
-                        class="flex items-center justify-center md:justify-start gap-2.5 text-white/90 hover:text-white transition-colors text-sm group"
+                        class="flex items-center justify-center sm:justify-start gap-2.5 text-white/90 hover:text-white transition-colors text-xs sm:text-sm group"
                     >
                         <div class="lokasi-icon">
                             <img 
@@ -235,9 +252,9 @@
                 </div>
 
                 <!-- Kolom 3: Media Sosial -->
-                <div>
-                    <h5 class="text-base md:text-lg font-semibold mb-2">Ikuti Kami</h5>
-                    <div class="flex gap-3 justify-center md:justify-start">
+                <div class="sm:col-span-2 md:col-span-1">
+                    <h5 class="text-sm sm:text-base md:text-lg font-semibold mb-2">Ikuti Kami</h5>
+                    <div class="flex gap-3 justify-center sm:justify-start">
                         <a href="https://www.instagram.com/pp_sunangringsing/" target="_blank" class="medsos-icon" title="Instagram">
                             <img src="assets/images/instagram.jpg" alt="Instagram" class="w-full h-full object-cover">
                         </a>
