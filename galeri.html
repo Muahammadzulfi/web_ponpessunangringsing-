@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri | Ponpes Sunan Gringsing</title>
+    <!-- Font Modern & Elegan -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        utama: {
+                            hijauTua: '#0A4D27',
+                            hijauSedang: '#0B5D30',
+                            hijauMint: '#10B981',
+                            abuMuda: '#F8F9FA',
+                            putih: '#FFFFFF'
+                        }
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'system-ui', 'sans-serif']
+                    },
+                    borderRadius: {
+                        '4xl': '2.5rem',
+                        '5xl': '3rem',
+                        'full': '9999px'
+                    },
+                    boxShadow: {
+                        'lembut': '0 2px 15px rgba(10, 77, 39, 0.05)',
+                        'sedang': '0 8px 25px rgba(10, 77, 39, 0.08)',
+                        'dalam': '0 12px 35px rgba(10, 77, 39, 0.12)',
+                        'tombol': '0 4px 12px rgba(11, 93, 48, 0.15)',
+                        'tombolHover': '0 6px 20px rgba(16, 185, 129, 0.22)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            /* Pola latar sangat halus */
+            .pola-latar {
+                background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%230A4D27' fill-opacity='0.02'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.31 0-6 2.69-6 6s2.69 6 6 6c2.21 0 4-1.79 4-4zm20 0c0-2.21-1.79-4-4-4-3.31 0-6 2.69-6 6s2.69 6 6 6c2.21 0 4-1.79 4-4zm20 0c0-2.21-1.79-4-4-4-3.31 0-6 2.69-6 6s2.69 6 6 6c2.21 0 4-1.79 4-4z'/%3E%3C/g%3E%3C/svg%3E");
+            }
+
+            /* Garis pemisah modern */
+            .garis-pemisah {
+                height: 2px;
+                width: 80px;
+                background: linear-gradient(90deg, #0B5D30, #10B981);
+                border-radius: 9999px;
+            }
+
+            /* Lengkungan alami */
+            .lengkung-bawah {
+                border-bottom-left-radius: 50% 10%;
+                border-bottom-right-radius: 50% 10%;
+            }
+            .lengkung-atas {
+                border-top-left-radius: 50% 10%;
+                border-top-right-radius: 50% 10%;
+            }
+
+            /* Navigasi */
+            .nav-link {
+                @apply px-5 py-2 rounded-full font-medium text-gray-700 transition-all duration-300 hover:bg-utama-abuMuda hover:text-utama-hijauSedang hover:shadow-lembut;
+            }
+
+            /* Tombol */
+            .btn-utama {
+                @apply bg-utama-hijauSedang hover:bg-utama-hijauMint text-utama-putih font-medium py-3 px-8 rounded-full shadow-tombol hover:shadow-tombolHover transition-all duration-300 transform hover:-translate-y-0.5;
+            }
+            .btn-kedua {
+                @apply bg-utama-putih hover:bg-utama-abuMuda text-utama-hijauSedang font-medium py-3 px-8 rounded-full border border-utama-hijauSedang/20 shadow-lembut hover:shadow-sedang transition-all duration-300;
+            }
+
+            /* Animasi muncul */
+            .muncul {
+                animation: fadeInUp 0.8s ease-out forwards;
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            @keyframes fadeInUp {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* Animasi gerak halus */
+            .animasi-gerak {
+                animation: gerakHalus 6s ease-in-out infinite alternate;
+            }
+            @keyframes gerakHalus {
+                0% { transform: translateY(0); }
+                100% { transform: translateY(-8px); }
+            }
+
+            /* Gaya untuk kotak gambar galeri */
+            .galeri-item {
+                @apply relative overflow-hidden rounded-3xl shadow-lembut hover:shadow-sedang transition-all duration-300 hover:-translate-y-2 cursor-pointer;
+            }
+            .galeri-caption {
+                @apply absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent text-white p-4 opacity-0 hover:opacity-100 transition-opacity duration-300;
+            }
+        }
+    </style>
+</head>
+<body class="font-inter bg-utama-putih text-gray-800 pola-latar">
+
+    <!-- Navigasi -->
+    <header class="sticky top-0 z-50 bg-utama-putih/90 backdrop-blur-md shadow-lembut">
+        <div class="container mx-auto px-6 lg:px-12">
+            <nav class="flex justify-between items-center h-20 md:h-24">
+                <!-- Logo & Nama -->
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-gradient-to-br from-utama-hijauTua to-utama-hijauSedang rounded-2xl flex items-center justify-center text-utama-putih font-bold text-xl shadow-sedang">
+                        PSG
+                    </div>
+                    <div>
+                        <h1 class="text-lg md:text-xl font-bold text-utama-hijauTua tracking-wide">PONPES SUNAN GRINGSING</h1>
+                    </div>
+                </div>
+
+                <!-- Menu Desktop -->
+                <div class="hidden md:flex items-center gap-1">
+                    <a href="index.html" class="nav-link">Beranda</a>
+                    <a href="profil.html" class="nav-link">Profil</a>
+                    <a href="program.html" class="nav-link">Program</a>
+                    <a href="kegiatan.html" class="nav-link">Kegiatan</a>
+                    <a href="galeri.html" class="nav-link bg-utama-abuMuda text-utama-hijauSedang">Galeri</a>
+                    <a href="pendaftaran.html" class="btn-utama ml-2">Daftar Santri</a>
+                </div>
+
+                <!-- Tombol Menu HP -->
+                <button id="tombolMenu" class="md:hidden text-utama-hijauSedang text-3xl">☰</button>
+            </nav>
+        </div>
+
+        <!-- Menu Mobile -->
+        <div id="menuHP" class="hidden bg-utama-putih shadow-sedang absolute w-full left-0 rounded-b-4xl overflow-hidden">
+            <div class="container mx-auto px-6 py-5 flex flex-col gap-3">
+                <a href="index.html" class="nav-link text-center">Beranda</a>
+                <a href="profil.html" class="nav-link text-center">Profil</a>
+                <a href="program.html" class="nav-link text-center">Program</a>
+                <a href="kegiatan.html" class="nav-link text-center">Kegiatan</a>
+                <a href="galeri.html" class="nav-link text-center bg-utama-abuMuda text-utama-hijauSedang">Galeri</a>
+                <a href="pendaftaran.html" class="btn-utama text-center mt-2">Daftar Santri Baru</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Bagian Judul Halaman -->
+    <section class="bg-utama-abuMuda py-16 lengkung-bawah">
+        <div class="container mx-auto px-6 lg:px-12 text-center muncul">
+            <h2 class="text-[clamp(2rem,5vw,3rem)] font-extrabold text-utama-hijauTua mb-4">Galeri Dokumentasi</h2>
+            <div class="garis-pemisah mx-auto mb-6"></div>
+            <p class="text-lg text-gray-700 max-w-2xl mx-auto">Kumpulan foto dan momen-momen berharga selama kegiatan belajar, beribadah, dan kebersamaan di Pondok Pesantren Sunan Gringsing</p>
+        </div>
+    </section>
+
+    <!-- Bagian Galeri Foto -->
+    <section class="py-20">
+        <div class="container mx-auto px-6 lg:px-12">
+            <!-- Kategori 1: Lingkungan & Gedung -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold text-utama-hijauTua mb-8 muncul">🏡 Lingkungan & Gedung Pesantren</h3>
+                <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <!-- Foto 1 -->
+                    <div class="galeri-item muncul" style="animation-delay: 0.2s">
+                        <div class="aspect-square bg-gradient-to-br from-utama-hijauTua/80 to-utama-hijauSedang/80 flex items-center justify-center text-white text-5xl">🏢</div>
+                        <div class="galeri-caption">
+                            <h4 class="font-semibold">Gedung Utama</h4>
+                            <p class="text-sm opacity-90">Tempat belajar dan kegiatan pengajian</p>
+                        </div>
+                    </div>
+                    <!-- Foto 2 -->
+                    <div class="galeri-item muncul" style="animation-delay: 0.3s">
+                        <div class="aspect-square bg-gradient-to-br from-utama-hijauTua/80 to-utama-hijauSedang/80 flex items-center justify-center text-white text-5xl">🕌</div>
+                        <div class="galeri-caption">
+                            <h4 class="font-semibold">Masjid</h4>
+                            <p class="text-sm opacity-90">Tempat ibadah berjamaah sehari-hari</p>
+                        </div>
+                    </div>
+                    <!-- Foto 3 -->
+                    <div class="galeri-item muncul" style="animation-delay: 0.4s">
+                        <div class="aspect-square bg-gradient-to-br from-utama-hijauTua/80 to-utama-hijauSedang/80 flex items-center justify-center text-white text-5xl">🏘️</div>
+                        <div class="galeri-caption">
+                            <h4 class="font-semibold">Asrama Santri</h4>
+                            <p class="text-sm opacity-90">Tempat tinggal yang nyaman dan kondusif</p>
+                        </div>
+                    </div>
+                    <!-- Foto 4 -->
+                    <div class="galeri-item muncul" style="animation-delay: 0.5s">
+                        <div class="aspect-square bg-gradient-to-br from-utama-hijauTua/80 to-utama-hijauSedang/80 flex items-center justify-center text-white text-5xl">🌳</div>
+                        <div class="galeri-caption">
+                            <h4 class="font-semibold">Halaman & Taman</h4>
+                            <p class="text-sm opacity-90">Lingkungan asri dan sejuk untuk istirahat</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kategori 2: Kegiatan Harian -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold text-utama-hijauTua mb-8 muncul">📚 Kegiatan Belajar & Beribadah</h3>
+                <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <!-- Foto 1 -->
+                    <div class="galeri-item muncul" style="animation-delay: 0.2s">
+                        <div class="aspect-square bg-gradient-to-br from-utama-hijauTua/80 to-utama-hijauSedang/80 flex items-center justify-center text-white text-5xl">📖</div>
+                        <div class="galeri-caption">
+                            <h4 class="font-semibold">Belajar Kitab Kuning</h4>
+                            <p class="text-sm opacity-90">Memperdalam ilmu agama bersama pengajar</p>
+                        </div>
+                    </div>
+                    <!-- Foto 2 -->
+                    <div class="galeri-item muncul" style="animation-delay: 0.3s">
+                        <div class="aspect-square bg-gradient-to-br from-utama-hijauTua/80 to-utama-hijauSedang/80 flex items-center justify-center text-white text-5xl">🤲</div>
+                        <div class="galeri-caption">
+                            <h4 class="font-semibold">Sholat Berjamaah</h4>
+                            <p class="text-sm opacity-90">Memperkuat kebersamaan dan ibadah</p>
+                        </div>
+                    </div>
+                    <!-- Foto 3 -->
+                    <div class="galeri-item muncul" style="animation-delay: 0.4s">
+                        <div class="aspect-square bg-gradient-to-br from-utama-hijauTua/80 to-utama-hijauSedang/80 flex items-center justify-center text-white text-5xl">🗣️</div>
+                        <div class="galeri-caption">
+                            <h4 class="font-semibold">Latihan Pidato</h4>
+                            <p class="text-sm opacity-90">Melatih kepercayaan diri dan berkomunikasi</p>
+                        </div>
+                    </div>
+                    <!-- Foto 4 -->
+                    <div class="galeri-item muncul" style="animation-delay: 0.5s">
+                        <div class="aspect-square bg-gradient-to-br from-utama-hijauTua/80 to-utama-hijauSedang/80 flex items-center justify-center text-white text-5xl">📝</div>
+                        <div class="galeri-caption">
+                            <h4 class="font-semibold">Kelas Umum</h4>
+                            <p class="text-sm opacity-90">Mempelajari ilmu pengetahuan umum</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kategori 3: Acara Khusus -->
+            <div>
+                <h3 class="text-2xl font-bold text-utama-hijauTua mb-8 muncul">🎉 Acara & Kegiatan Tahunan</h3>
+                <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <!-- Foto 1 -->
+                    <div class="galeri-item muncul" style="animation-delay: 0.2s">
+                        <div class="aspect-square bg-gradient-to-br from-utama-hijauTua/80 to-utama-hijauSedang/80 flex items-center justify-center text-white text-5xl">🌙</div>
+                        <div class="galeri-caption">
+                            <h4 class="font-semibold">Kegiatan Ramadhan</h4>
+                            <p class="text-sm opacity-90">Perbanyak ibadah dan santunan masyarakat</p>
+                        </div>
+                    </div>
+                    <!-- Foto 2 -->
+                    <div class="galeri-item muncul" style="animation-delay: 0.3s">
+                        <div class="aspect-square bg-gradient-to-br from-utama-hijauTua/80 to-utama-hijauSedang/80 flex items-center justify-center text-white text-5xl">🎓</div>
+                        <div class="galeri-caption">
+                            <h4 class="font-semibold">Wisuda Santri</h4>
+                            <p class="text-sm opacity-90">Penutupan tahun ajaran dan penyerahan ijazah</p>
+                        </div>
+                    </div>
+                    <!-- Foto 3 -->
+                    <div class="galeri-item muncul" style="animation-delay: 0.4s">
+                        <div class="aspect-square bg-gradient-to-br from-utama-hijauTua/80 to-utama-hijauSedang/80 flex items-center justify-center text-white text-5xl">🤝</div>
+                        <div class="galeri-caption">
+                            <h4 class="font-semibold">Kerja Bakti</h4>
+                            <p class="text-sm opacity-90">Merawat lingkungan bersama-sama</p>
+                        </div>
+                    </div>
+                    <!-- Foto 4 -->
+                    <div class="galeri-item muncul" style="animation-delay: 0.5s">
+                        <div class="aspect-square bg-gradient-to-br from-utama-hijauTua/80 to-utama-hijauSedang/80 flex items-center justify-center text-white text-5xl">🏃</div>
+                        <div class="galeri-caption">
+                            <h4 class="font-semibold">Kegiatan Olahraga</h4>
+                            <p class="text-sm opacity-90">Menjaga kesehatan dan kebugaran tubuh</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Penutup -->
+    <section class="py-16 bg-utama-abuMuda text-center">
+        <div class="container mx-auto px-6 lg:px-12 max-w-3xl muncul">
+            <h3 class="text-2xl font-bold text-utama-hijauTua mb-4">Ingin Bergabung Bersama Kami?</h3>
+            <div class="garis-pemisah mx-auto mb-6"></div>
+            <p class="text-gray-700 text-lg leading-relaxed mb-8">
+                Jadilah bagian dari keluarga besar Pondok Pesantren Sunan Gringsing untuk menuntut ilmu, membentuk akhlak mulia, dan mempersiapkan masa depan yang cerah.
+            </p>
+            <a href="pendaftaran.html" class="btn-utama">Lihat Informasi Pendaftaran</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-br from-utama-hijauTua to-utama-hijauSedang text-utama-putih py-12 lengkung-atas">
+        <div class="container mx-auto px-6 lg:px-12 text-center">
+            <h4 class="text-2xl font-bold mb-3">Pondok Pesantren Sunan Gringsing</h4>
+            <p class="text-white/90 max-w-xl mx-auto mb-6">Mencetak generasi yang berilmu, berakhlak mulia, dan bermanfaat bagi masyarakat</p>
+            <div class="w-40 h-0.5 bg-white/30 mx-auto mb-6 rounded-full"></div>
+            <p class="text-sm text-white/80">&copy; 2026 Ponpes Sunan Gringsing. Semua Hak Dilindungi.</p>
+            <p class="text-xs text-white/65 mt-2">Berlandaskan Ahlussunnah wal Jama'ah Nahdlatul Ulama</p>
+        </div>
+    </footer>
+
+    <!-- Script Menu -->
+    <script>
+        const tombolMenu = document.getElementById('tombolMenu');
+        const menuHP = document.getElementById('menuHP');
+        tombolMenu.addEventListener('click', () => {
+            menuHP.classList.toggle('hidden');
+            tombolMenu.textContent = menuHP.classList.contains('hidden') ? '☰' : '✕';
+        });
+    </script>
+</body>
+</html>
