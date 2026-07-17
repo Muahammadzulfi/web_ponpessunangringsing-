@@ -2,9 +2,9 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil | Ponpes Sunan Gringsing</title>
-    <!-- Font Modern & Elegan -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Profil - Ponpes Sunan Gringsing</title>
+    <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -28,7 +28,7 @@
                     },
                     borderRadius: {
                         '4xl': '2.5rem',
-                        '5xl': '3rem',
+                        'xl': '0.75rem',
                         'full': '9999px'
                     },
                     boxShadow: {
@@ -44,12 +44,10 @@
     </script>
     <style type="text/tailwindcss">
         @layer utilities {
-            /* Pola latar sangat halus */
             .pola-latar {
                 background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%230A4D27' fill-opacity='0.02'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.31 0-6 2.69-6 6s2.69 6 6 6c2.21 0 4-1.79 4-4zm20 0c0-2.21-1.79-4-4-4-3.31 0-6 2.69-6 6s2.69 6 6 6c2.21 0 4-1.79 4-4zm20 0c0-2.21-1.79-4-4-4-3.31 0-6 2.69-6 6s2.69 6 6 6c2.21 0 4-1.79 4-4z'/%3E%3C/g%3E%3C/svg%3E");
             }
 
-            /* Garis pemisah modern */
             .garis-pemisah {
                 height: 2px;
                 width: 80px;
@@ -57,59 +55,20 @@
                 border-radius: 9999px;
             }
 
-            /* Lengkungan alami */
-            .lengkung-bawah {
-                border-bottom-left-radius: 50% 10%;
-                border-bottom-right-radius: 50% 10%;
-            }
-            .lengkung-atas {
-                border-top-left-radius: 50% 10%;
-                border-top-right-radius: 50% 10%;
-            }
-
-            /* Navigasi */
             .nav-link {
-                @apply px-5 py-2 rounded-full font-medium text-gray-700 transition-all duration-300 hover:bg-utama-abuMuda hover:text-utama-hijauSedang hover:shadow-lembut;
+                @apply px-4 py-2 rounded-full font-medium text-gray-700 transition-all duration-300 hover:bg-utama-abuMuda hover:text-utama-hijauSedang hover:shadow-lembut;
             }
 
-            /* Tombol */
             .btn-utama {
-                @apply bg-utama-hijauSedang hover:bg-utama-hijauMint text-utama-putih font-medium py-3 px-8 rounded-full shadow-tombol hover:shadow-tombolHover transition-all duration-300 transform hover:-translate-y-0.5;
-            }
-            .btn-kedua {
-                @apply bg-utama-putih hover:bg-utama-abuMuda text-utama-hijauSedang font-medium py-3 px-8 rounded-full border border-utama-hijauSedang/20 shadow-lembut hover:shadow-sedang transition-all duration-300;
+                @apply bg-utama-hijauSedang hover:bg-utama-hijauMint text-utama-putih font-medium py-2.5 px-6 md:py-3 md:px-8 rounded-full shadow-tombol hover:shadow-tombolHover transition-all duration-300 transform hover:-translate-y-0.5;
             }
 
-            /* Animasi muncul */
-            .muncul {
-                animation: fadeInUp 0.8s ease-out forwards;
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            @keyframes fadeInUp {
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
+            .lokasi-kotak {
+                @apply bg-utama-abuMuda p-4 md:p-5 rounded-xl shadow-lembut border-l-4 border-utama-hijauMint mt-6;
             }
 
-            /* Animasi gerak */
-            .animasi-gerak {
-                animation: gerakHalus 6s ease-in-out infinite alternate;
-            }
-            .animasi-melayang {
-                animation: melayang 5s ease-in-out infinite;
-            }
-
-            @keyframes gerakHalus {
-                0% { transform: translateY(0); }
-                100% { transform: translateY(-8px); }
-            }
-
-            @keyframes melayang {
-                0% { transform: translate(0, 0); }
-                50% { transform: translate(0, -10px); }
-                100% { transform: translate(0, 0); }
+            .lokasi-icon {
+                @apply w-9 h-9 md:w-10 md:h-10 rounded-full bg-utama-hijauSedang/10 flex items-center justify-center overflow-hidden transition-all duration-300 hover:bg-utama-hijauSedang/20;
             }
         }
     </style>
@@ -118,204 +77,150 @@
 
     <!-- Navigasi -->
     <header class="sticky top-0 z-50 bg-utama-putih/90 backdrop-blur-md shadow-lembut">
-        <div class="container mx-auto px-6 lg:px-12">
-            <nav class="flex justify-between items-center h-20 md:h-24">
-                <!-- Logo & Nama -->
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-2xl overflow-hidden shadow-sedang">
-                        <!-- Perbaiki alamat logo, gunakan garis miring / bukan spasi -->
+        <div class="container mx-auto px-4 md:px-6 lg:px-12">
+            <nav class="flex justify-between items-center h-16 md:h-20 lg:h-24">
+                <div class="flex items-center gap-3 md:gap-4">
+                    <div class="w-10 h-10 md:w-12 md:h-12 rounded-2xl overflow-hidden shadow-sedang">
                         <img 
-                            src="assets/images/logo_sunan.jpg" 
+                            src="assets/images/logo sunan.jpg" 
                             alt="Logo Ponpes Sunan Gringsing" 
                             class="w-full h-full object-cover"
                         >
                     </div>
                     <div>
-                        <h1 class="text-lg md:text-xl font-bold text-utama-hijauTua tracking-wide">PONPES SUNAN GRINGSING</h1>
+                        <h1 class="text-base md:text-lg lg:text-xl font-bold text-utama-hijauTua tracking-wide">PONPES SUNAN GRINGSING</h1>
                     </div>
                 </div>
 
-                <!-- Menu Desktop -->
-                <div class="hidden md:flex items-center gap-1">
+                <div class="hidden md:flex items-center gap-1 lg:gap-2">
                     <a href="index.html" class="nav-link">Beranda</a>
-                    <a href="profil.html" class="nav-link bg-utama-abuMuda text-utama-hijauSedang">Profil</a>
+                    <a href="profil.html" class="nav-link bg-utama-hijauSedang/10 text-utama-hijauSedang">Profil</a>
                     <a href="program.html" class="nav-link">Program</a>
                     <a href="kegiatan.html" class="nav-link">Kegiatan</a>
                     <a href="galeri.html" class="nav-link">Galeri</a>
-                    <a href="pendaftaran.html" class="btn-utama ml-2">Daftar Santri</a>
+                    <a href="pendaftaran.html" class="btn-utama ml-1 md:ml-2">Daftar Santri</a>
                 </div>
 
-                <!-- Tombol Menu HP -->
-                <button id="tombolMenu" class="md:hidden text-utama-hijauSedang text-3xl">☰</button>
+                <button id="tombolMenu" class="md:hidden text-utama-hijauSedang text-2xl">☰</button>
             </nav>
         </div>
 
-        <!-- Menu Mobile -->
-        <div id="menuHP" class="hidden bg-utama-putih shadow-sedang absolute w-full left-0 rounded-b-4xl overflow-hidden">
-            <div class="container mx-auto px-6 py-5 flex flex-col gap-3">
-                <a href="index.html" class="nav-link text-center">Beranda</a>
-                <a href="profil.html" class="nav-link text-center bg-utama-abuMuda text-utama-hijauSedang">Profil</a>
-                <a href="program.html" class="nav-link text-center">Program</a>
-                <a href="kegiatan.html" class="nav-link text-center">Kegiatan</a>
-                <a href="galeri.html" class="nav-link text-center">Galeri</a>
-                <a href="pendaftaran.html" class="btn-utama text-center mt-2">Daftar Santri Baru</a>
+        <div id="menuHP" class="hidden bg-utama-putih shadow-sedang absolute w-full left-0 rounded-b-4xl overflow-hidden z-40">
+            <div class="container mx-auto px-4 py-4 flex flex-col gap-2">
+                <a href="index.html" class="nav-link text-center py-2.5">Beranda</a>
+                <a href="profil.html" class="nav-link text-center py-2.5 bg-utama-hijauSedang/10 text-utama-hijauSedang">Profil</a>
+                <a href="program.html" class="nav-link text-center py-2.5">Program</a>
+                <a href="kegiatan.html" class="nav-link text-center py-2.5">Kegiatan</a>
+                <a href="galeri.html" class="nav-link text-center py-2.5">Galeri</a>
+                <a href="pendaftaran.html" class="btn-utama text-center mt-1 py-2.5">Daftar Santri Baru</a>
             </div>
         </div>
     </header>
 
-    <!-- Bagian Judul Halaman -->
-    <section class="bg-utama-abuMuda py-16 lengkung-bawah">
-        <div class="container mx-auto px-6 lg:px-12 text-center muncul">
-            <h2 class="text-[clamp(2rem,5vw,3rem)] font-extrabold text-utama-hijauTua mb-4">Profil Pesantren</h2>
-            <div class="garis-pemisah mx-auto mb-6"></div>
-            <p class="text-lg text-gray-700 max-w-2xl mx-auto">Mengenal lebih dekat latar belakang, visi, misi, dan nilai-nilai yang kami junjung tinggi</p>
-        </div>
-    </section>
+    <!-- Konten Profil -->
+    <section class="py-12 md:py-16 lg:py-20">
+        <div class="max-w-6xl mx-auto px-5 md:px-8">
+            <!-- Tata Letak: Teks Kiri, Gambar Kanan -->
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start">
+                <!-- Kolom Kiri: Teks Tentang -->
+                <div>
+                    <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-utama-hijauTua mb-4">Tentang Pondok Pesantren Sunan Gringsing</h2>
+                    <div class="garis-pemisah mb-6"></div>
 
-    <!-- Bagian Tentang Kami -->
-    <section class="py-20">
-        <div class="container mx-auto px-6 lg:px-12">
-            <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <!-- ✅ BAGIAN GAMBAR DI SEBELAH KIRI (Sudah diperbaiki sepenuhnya) -->
-                <div class="muncul animasi-melayang" style="animation-delay: 0.2s">
-                    <div class="bg-utama-putih p-4 rounded-[3rem] shadow-dalam">
-                        <div class="aspect-square rounded-[2.5rem] overflow-hidden">
-                            <!-- Alamat gambar sudah diperbaiki -->
+                    <div class="space-y-5 text-gray-700 text-base md:text-lg leading-relaxed text-left">
+                        <p>
+                            Pondok Pesantren Sunan Gringsing merupakan salah satu pondok pesantren yang ada di Kabupaten Purbalingga. Adapun belajar mengajar di ponpes ini menggunakan kurikulum yang berlaku di tambah dengan ilmu agama. Ada juga kegiatan-kegiatan ekstrakurikuler sekolah untuk santri seperti karate, basket, futsal, grup belajar dan lainnya.
+                        </p>
+                        <p>
+                            Pondok Pesantren Sunan Gringsing memiliki staf pengajar ustadz/ustadzah serta guru yang kompeten pada bidang pelajarannya masing-masing sehingga berkualitas dan menjadi salah satu pesantren terbaik di Kabupaten Purbalingga. Tersedia juga berbagai fasilitas seperti ruang kelas yang nyaman, asrama yang nyaman, laboratorium praktikum, perpustakaan, lapangan olahraga, kantin, masjid dan lainnya.
+                        </p>
+                        <p>
+                            Sejak berdiri, pesantren terus berkembang dan berusaha meningkatkan kualitas pendidikannya. Kami menggabungkan sistem pengajian tradisional dengan metode pembelajaran modern agar santri tidak hanya menguasai ilmu agama, tetapi juga memiliki bekal untuk melanjutkan pendidikan ke jenjang yang lebih tinggi dan berkarya di masyarakat.
+                        </p>
+                    </div>
+
+                    <!-- Bagian Lokasi -->
+                    <div class="lokasi-kotak">
+                        <h4 class="text-lg md:text-xl font-semibold text-utama-hijauTua mb-3">Lokasi Kami</h4>
+                        <a 
+                            href="https://www.google.com/maps/place/J8FW%2B63F+Gemuruh,+Padamara,+Kabupaten+Purbalingga,+Jawa+Tengah" 
+                            target="_blank" 
+                            class="flex items-start md:items-center gap-3 text-gray-700 hover:text-utama-hijauSedang transition-colors group"
+                        >
+                            <div class="lokasi-icon mt-1 md:mt-0 flex-shrink-0">
+                                <img 
+                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Google_Maps_icon_%282020%29.svg/1200px-Google_Maps_icon_%282020%29.svg.png" 
+                                    alt="Google Maps" 
+                                    class="w-5 h-5 md:w-6 md:h-6 object-contain"
+                                >
+                            </div>
+                            <div>
+                                <p class="font-medium">Jl. Gemuruh, Dusun III, Gemuruh, Kec. Padamara, Kabupaten Purbalingga, Jawa Tengah 53372, Indonesia</p>
+                                <p class="text-sm text-utama-hijauSedang mt-1 group-hover:underline">Buka di Google Maps</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Kolom Kanan: Kotak Gambar Pondok -->
+                <div class="mt-8 md:mt-0">
+                    <div class="bg-utama-putih p-2 md:p-3 rounded-xl md:rounded-2xl shadow-dalam border border-gray-100">
+                        <div class="aspect-[4/5] rounded-lg md:rounded-xl overflow-hidden">
+                            <!-- Ganti nama file gambarnya sesuai yang kamu miliki -->
                             <img 
                                 src="assets/images/pondok.jpg" 
-                                alt="Tampak depan Pondok Pesantren Sunan Gringsing" 
-                                class="w-full h-full object-cover"
-                                loading="lazy"
+                                alt="Foto Pondok Pesantren Sunan Gringsing" 
+                                class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                             >
                         </div>
                     </div>
-                </div>
-
-                <!-- BAGIAN TEKS DI SEBELAH KANAN -->
-                <div class="muncul" style="animation-delay: 0.4s">
-                    <h3 class="text-3xl font-bold text-utama-hijauTua mb-5">Tentang Pondok Pesantren Sunan Gringsing</h3>
-                    <div class="garis-pemisah mb-6"></div>
-                    <p class="text-gray-700 leading-relaxed mb-4">
-                        Pondok Pesantren Sunan Gringsing merupakan salah satu pondok pesantren yang ada di Kabupaten Purbalingga. Adapun belajar mengajar di ponpes ini menggunakan kurikulum yang berlaku di tambah dengan ilmu agama. Ada juga kegiatan-kegiatan ekstrakulikuler sekolah untuk santri seperti karate, basket, futsal, grup belajar dan lainnya.
-
-Pondok Pesantren Sunan Gringsing memiliki staf pengajar uztad/uztazah serta guru yang kompeten pada bidang pelajarannya masing-masing sehingga berkualitas dan menjadi salah satu pesantren terbaik di Kabupaten Purbalingga. Tersedia juga berbagai fasilitas seperti ruang kelas yang nyaman, asrama yang nyaman, laboratorium praktikum, perpustakaan, lapangan olahraga, kantin, masjid dan lainnya.
-
-Segera kunjungi ponpes terdekat ini untuk info pendaftaran, biaya pendaftaran, info biaya SPP, info kurikulum, info pesantren di Kabupaten Purbalingga, nomor NPSN dan lainnya. Anda juga bisa menghubungi kontak atau mengakses website sekolah jika tersedia.
-                    </p>
-                    <p class="text-gray-700 leading-relaxed mb-6">
-                        Sejak berdiri, pesantren terus berkembang dan berusaha meningkatkan kualitas pendidikannya. Kami menggabungkan sistem pengajian tradisional dengan metode pembelajaran modern agar santri tidak hanya menguasai ilmu agama, tetapi juga memiliki bekal untuk melanjutkan pendidikan ke jenjang yang lebih tinggi dan berkarya di masyarakat.
-                    </p>
-                    <div class="flex items-center gap-4">
-                        <div class="bg-utama-abuMuda px-5 py-3 rounded-2xl w-full">
-                            <span class="text-utama-hijauTua font-semibold">Lokasi</span>
-                            <p class="text-gray-600 mt-1">Pondok Pesantren Sunan Gringsing Purbalingga beralamat di Jl. Gemuruh, Dusun III, Gemuruh, Kec. Padamara, Kabupaten Purbalingga, Jawa Tengah 53372, Indonesia.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Bagian Visi & Misi -->
-    <section class="py-16 bg-utama-abuMuda">
-        <div class="container mx-auto px-6 lg:px-12">
-            <div class="text-center mb-14 muncul">
-                <h3 class="text-3xl md:text-4xl font-bold text-utama-hijauTua mb-4">Visi & Misi</h3>
-                <div class="garis-pemisah mx-auto mb-6"></div>
-            </div>
-
-            <div class="grid sm:grid-cols-2 gap-8">
-                <!-- Visi -->
-                <div class="muncul bg-utama-putih p-8 rounded-4xl shadow-sedang hover:shadow-dalam transition-shadow duration-300" style="animation-delay: 0.2s">
-                    <div class="w-16 h-16 bg-gradient-to-br from-utama-hijauTua to-utama-hijauSedang rounded-2xl flex items-center justify-center text-utama-putih text-2xl mb-6 animasi-gerak">🎯</div>
-                    <h4 class="text-2xl font-bold text-utama-hijauTua mb-4">Visi</h4>
-                    <p class="text-gray-700 leading-relaxed">
-                        Menjadi lembaga pendidikan Islam yang unggul, berkualitas, dan terpercaya dalam mencetak generasi yang berilmu, berakhlak mulia, mandiri, serta mampu berkontribusi positif bagi agama, bangsa, dan negara.
-                    </p>
-                </div>
-
-                <!-- Misi -->
-                <div class="muncul bg-utama-putih p-8 rounded-4xl shadow-sedang hover:shadow-dalam transition-shadow duration-300" style="animation-delay: 0.4s">
-                    <div class="w-16 h-16 bg-gradient-to-br from-utama-hijauTua to-utama-hijauSedang rounded-2xl flex items-center justify-center text-utama-putih text-2xl mb-6 animasi-gerak">⚙️</div>
-                    <h4 class="text-2xl font-bold text-utama-hijauTua mb-4">Misi</h4>
-                    <ul class="list-disc pl-5 text-gray-700 space-y-2 leading-relaxed">
-                        <li>Menyelenggarakan pendidikan agama dan umum yang terpadu dan berkualitas.</li>
-                        <li>Membentuk kepribadian santri yang berlandaskan akhlak Islami.</li>
-                        <li>Melestarikan tradisi ilmu Islam sesuai manhaj Ahlussunnah wal Jama'ah.</li>
-                        <li>Membekali santri dengan keterampilan hidup agar mandiri dan bermanfaat.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Bagian Nilai Dasar -->
-    <section class="py-20">
-        <div class="container mx-auto px-6 lg:px-12">
-            <div class="text-center mb-12 muncul">
-                <h3 class="text-3xl font-bold text-utama-hijauTua mb-4">Nilai Dasar Kami</h3>
-                <div class="garis-pemisah mx-auto mb-6"></div>
-            </div>
-
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="muncul bg-utama-abuMuda p-6 rounded-3xl text-center shadow-lembut hover:shadow-sedang transition-all duration-300 hover:-translate-y-1" style="animation-delay: 0.1s">
-                    <h5 class="text-xl font-semibold text-utama-hijauTua mb-2">Keimanan</h5>
-                    <p class="text-gray-600">Memperkuat keyakinan kepada Allah SWT sebagai landasan utama kehidupan</p>
-                </div>
-                <div class="muncul bg-utama-abuMuda p-6 rounded-3xl text-center shadow-lembut hover:shadow-sedang transition-all duration-300 hover:-translate-y-1" style="animation-delay: 0.2s">
-                    <h5 class="text-xl font-semibold text-utama-hijauTua mb-2">Ilmu</h5>
-                    <p class="text-gray-600">Mengutamakan penuntutan ilmu yang bermanfaat bagi dunia dan akhirat</p>
-                </div>
-                <div class="muncul bg-utama-abuMuda p-6 rounded-3xl text-center shadow-lembut hover:shadow-sedang transition-all duration-300 hover:-translate-y-1" style="animation-delay: 0.3s">
-                    <h5 class="text-xl font-semibold text-utama-hijauTua mb-2">Akhlak</h5>
-                    <p class="text-gray-600">Membiasakan perilaku jujur, santun, dan bertanggung jawab dalam segala hal</p>
-                </div>
-                <div class="muncul bg-utama-abuMuda p-6 rounded-3xl text-center shadow-lembut hover:shadow-sedang transition-all duration-300 hover:-translate-y-1" style="animation-delay: 0.4s">
-                    <h5 class="text-xl font-semibold text-utama-hijauTua mb-2">Kemandirian</h5>
-                    <p class="text-gray-600">Melatih santri mampu mengelola waktu dan menyelesaikan tugas dengan baik</p>
+                    <p class="text-center text-sm text-gray-500 mt-3">Pondok Pesantren Sunan Gringsing</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-br from-utama-hijauTua to-utama-hijauSedang text-utama-putih py-12 lengkung-atas">
-        <div class="container mx-auto px-6 lg:px-12">
-            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
-                <!-- Kolom 1: Tentang -->
+    <footer class="bg-gradient-to-br from-utama-hijauTua to-utama-hijauSedang text-utama-putih py-6 md:py-8">
+        <div class="max-w-4xl mx-auto px-5 md:px-8">
+            <div class="grid md:grid-cols-3 gap-5 md:gap-6 text-center md:text-left">
                 <div>
-                    <h4 class="text-2xl font-bold mb-4">Ponpes Sunan Gringsing</h4>
-                    <p class="text-white/90 leading-relaxed">Mencetak generasi yang berilmu, berakhlak mulia, dan bermanfaat bagi agama, bangsa, dan negara.</p>
+                    <h4 class="text-lg md:text-xl font-bold mb-2">Ponpes Sunan Gringsing</h4>
+                    <p class="text-white/90 leading-relaxed text-sm">Mencetak generasi yang berilmu, berakhlak mulia, dan bermanfaat bagi agama, bangsa, dan negara.</p>
                 </div>
-
-                <!-- Kolom 2: Lokasi & Maps -->
                 <div>
-                    <h5 class="text-xl font-semibold mb-4">Lokasi Kami</h5>
-                    <a href="https://www.google.com/maps/place/J8FW%2B63F+Gemuruh,+Padamara,+Kabupaten+Purbalingga,+Jawa+Tengah" target="_blank" class="flex items-center justify-center md:justify-start gap-3 text-white/90 hover:text-white transition-colors">
-                        <span class="text-2xl">📍</span>
-                        <p>J8FW+63F, Jalan, Dusun III, Gemuruh, Padamara, Purbalingga, Jawa Tengah 53372</p>
+                    <h5 class="text-base md:text-lg font-semibold mb-2">Lokasi Kami</h5>
+                    <a 
+                        href="https://www.google.com/maps/place/J8FW%2B63F+Gemuruh,+Padamara,+Kabupaten+Purbalingga,+Jawa+Tengah" 
+                        target="_blank" 
+                        class="flex items-center justify-center md:justify-start gap-2.5 text-white/90 hover:text-white transition-colors text-sm group"
+                    >
+                        <div class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-white/20 flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:bg-white">
+                            <img 
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Google_Maps_icon_%282020%29.svg/1200px-Google_Maps_icon_%282020%29.svg.png" 
+                                alt="Google Maps" 
+                                class="w-4 h-4 md:w-5 md:h-5 object-contain"
+                            >
+                        </div>
+                        <p class="leading-relaxed text-left">J8FW+63F, Jalan, Dusun III, Gemuruh, Padamara, Purbalingga, Jawa Tengah 53372</p>
                     </a>
                 </div>
-
-                <!-- Kolom 3: Media Sosial -->
                 <div>
-                    <h5 class="text-xl font-semibold mb-4">Ikuti Kami</h5>
-                    <div class="flex gap-4 justify-center md:justify-start">
-                        <a href="https://www.instagram.com/pp_sunangringsing/" target="_blank" class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white text-xl transition-all duration-300 hover:bg-white hover:text-utama-hijauSedang" title="Instagram">
-                            <span>📷</span>
+                    <h5 class="text-base md:text-lg font-semibold mb-2">Ikuti Kami</h5>
+                    <div class="flex gap-3 justify-center md:justify-start">
+                        <a href="https://www.instagram.com/pp_sunangringsing/" target="_blank" class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/20 flex items-center justify-center overflow-hidden transition-all duration-300 hover:scale-110 hover:shadow-lg" title="Instagram">
+                            <img src="assets/images/instagram.jpg" alt="Instagram" class="w-full h-full object-cover">
                         </a>
-                        <a href="https://www.tiktok.com/@pp.sunan.gringsin" target="_blank" class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white text-xl transition-all duration-300 hover:bg-white hover:text-utama-hijauSedang" title="TikTok">
-                            <span>🎵</span>
+                        <a href="https://www.tiktok.com/@pp.sunan.gringsin" target="_blank" class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/20 flex items-center justify-center overflow-hidden transition-all duration-300 hover:scale-110 hover:shadow-lg" title="TikTok">
+                            <img src="assets/images/tiktok.jpg" alt="TikTok" class="w-full h-full object-cover">
                         </a>
                     </div>
                 </div>
             </div>
-
-            <div class="w-full h-0.5 bg-white/30 mx-auto my-8 rounded-full"></div>
-
+            <div class="w-full h-0.5 bg-white/30 mx-auto my-4 rounded-full"></div>
             <div class="text-center">
-                <p class="text-sm text-white/80">&copy; 2026 Ponpes Sunan Gringsing. Semua Hak Dilindungi.</p>
-                <p class="text-xs text-white/65 mt-2">Berlandaskan Ahlussunnah wal Jama'ah Nahdlatul Ulama</p>
+                <p class="text-xs text-white/80">&copy; 2026 Ponpes Sunan Gringsing. Semua Hak Dilindungi.</p>
+                <p class="text-[10px] text-white/65 mt-0.5">Berlandaskan Ahlussunnah wal Jama'ah Nahdlatul Ulama</p>
             </div>
         </div>
     </footer>
