@@ -20,7 +20,8 @@
                             hijauSedang: '#0B5D30',
                             hijauMint: '#10B981',
                             abuMuda: '#F8F9FA',
-                            putih: '#FFFFFF'
+                            putih: '#FFFFFF',
+                            hitam: '#121212'
                         }
                     },
                     fontFamily: {
@@ -57,16 +58,6 @@
                 border-radius: 9999px;
             }
 
-            /* Lengkungan alami */
-            .lengkung-bawah {
-                border-bottom-left-radius: 50% 10%;
-                border-bottom-right-radius: 50% 10%;
-            }
-            .lengkung-atas {
-                border-top-left-radius: 50% 10%;
-                border-top-right-radius: 50% 10%;
-            }
-
             /* Navigasi */
             .nav-link {
                 @apply px-5 py-2 rounded-full font-medium text-gray-700 transition-all duration-300 hover:bg-utama-abuMuda hover:text-utama-hijauSedang hover:shadow-lembut;
@@ -75,9 +66,6 @@
             /* Tombol */
             .btn-utama {
                 @apply bg-utama-hijauSedang hover:bg-utama-hijauMint text-utama-putih font-medium py-3 px-8 rounded-full shadow-tombol hover:shadow-tombolHover transition-all duration-300 transform hover:-translate-y-0.5;
-            }
-            .btn-kedua {
-                @apply bg-utama-putih hover:bg-utama-abuMuda text-utama-hijauSedang font-medium py-3 px-8 rounded-full border border-utama-hijauSedang/20 shadow-lembut hover:shadow-sedang transition-all duration-300;
             }
 
             /* Animasi muncul */
@@ -93,21 +81,17 @@
                 }
             }
 
-            /* Animasi gerak halus */
-            .animasi-gerak {
-                animation: gerakHalus 6s ease-in-out infinite alternate;
-            }
-            @keyframes gerakHalus {
-                0% { transform: translateY(0); }
-                100% { transform: translateY(-8px); }
-            }
-
             /* Gaya untuk kotak gambar galeri */
             .galeri-item {
                 @apply relative overflow-hidden rounded-3xl shadow-lembut hover:shadow-sedang transition-all duration-300 hover:-translate-y-2 cursor-pointer;
             }
             .galeri-caption {
                 @apply absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent text-white p-4 opacity-0 hover:opacity-100 transition-opacity duration-300;
+            }
+
+            /* Gaya ikon medsos & lokasi sama persis halaman beranda */
+            .medsos-icon, .lokasi-icon {
+                @apply w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/20 flex items-center justify-center overflow-hidden transition-all duration-300 hover:scale-110 hover:shadow-lg;
             }
         }
     </style>
@@ -116,200 +100,270 @@
 
     <!-- Navigasi -->
     <header class="sticky top-0 z-50 bg-utama-putih/90 backdrop-blur-md shadow-lembut">
-        <div class="container mx-auto px-6 lg:px-12">
-            <nav class="flex justify-between items-center h-20 md:h-24">
-                <!-- Logo & Nama -->
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 bg-gradient-to-br from-utama-hijauTua to-utama-hijauSedang rounded-2xl flex items-center justify-center text-utama-putih font-bold text-xl shadow-sedang">
-                        PSG
+        <div class="container mx-auto px-4 md:px-6 lg:px-12">
+            <nav class="flex justify-between items-center h-16 md:h-20 lg:h-24">
+                <!-- Logo & Nama Sama Seperti Beranda -->
+                <div class="flex items-center gap-3 md:gap-4">
+                    <div class="w-10 h-10 md:w-12 md:h-12 rounded-2xl overflow-hidden shadow-sedang">
+                        <img
+                            src="assets/images/logo sunan.jpg"
+                            alt="Logo Ponpes Sunan Gringsing"
+                            class="w-full h-full object-cover"
+                        >
                     </div>
                     <div>
-                        <h1 class="text-lg md:text-xl font-bold text-utama-hijauTua tracking-wide">PONPES SUNAN GRINGSING</h1>
+                        <h1 class="text-base md:text-lg lg:text-xl font-bold text-utama-hijauTua tracking-wide">PONPES SUNAN GRINGSING</h1>
                     </div>
                 </div>
 
                 <!-- Menu Desktop -->
-                <div class="hidden md:flex items-center gap-1">
+                <div class="hidden md:flex items-center gap-1 lg:gap-2">
                     <a href="index.html" class="nav-link">Beranda</a>
                     <a href="profil.html" class="nav-link">Profil</a>
                     <a href="program.html" class="nav-link">Program</a>
                     <a href="kegiatan.html" class="nav-link">Kegiatan</a>
                     <a href="galeri.html" class="nav-link bg-utama-abuMuda text-utama-hijauSedang">Galeri</a>
-                    <a href="pendaftaran.html" class="btn-utama ml-2">Daftar Santri</a>
+                    <a href="pendaftaran.html" class="btn-utama ml-1 md:ml-2">Daftar Santri</a>
                 </div>
 
                 <!-- Tombol Menu HP -->
-                <button id="tombolMenu" class="md:hidden text-utama-hijauSedang text-3xl">☰</button>
+                <button id="tombolMenu" class="md:hidden text-utama-hijauSedang text-2xl">☰</button>
             </nav>
         </div>
 
         <!-- Menu Mobile -->
-        <div id="menuHP" class="hidden bg-utama-putih shadow-sedang absolute w-full left-0 rounded-b-4xl overflow-hidden">
-            <div class="container mx-auto px-6 py-5 flex flex-col gap-3">
-                <a href="index.html" class="nav-link text-center">Beranda</a>
-                <a href="profil.html" class="nav-link text-center">Profil</a>
-                <a href="program.html" class="nav-link text-center">Program</a>
-                <a href="kegiatan.html" class="nav-link text-center">Kegiatan</a>
-                <a href="galeri.html" class="nav-link text-center bg-utama-abuMuda text-utama-hijauSedang">Galeri</a>
-                <a href="pendaftaran.html" class="btn-utama text-center mt-2">Daftar Santri Baru</a>
+        <div id="menuHP" class="hidden bg-utama-putih shadow-sedang absolute w-full left-0 overflow-hidden z-40">
+            <div class="container mx-auto px-4 py-4 flex flex-col gap-2">
+                <a href="index.html" class="nav-link text-center py-2.5">Beranda</a>
+                <a href="profil.html" class="nav-link text-center py-2.5">Profil</a>
+                <a href="program.html" class="nav-link text-center py-2.5">Program</a>
+                <a href="kegiatan.html" class="nav-link text-center py-2.5">Kegiatan</a>
+                <a href="galeri.html" class="nav-link text-center py-2.5 bg-utama-abuMuda text-utama-hijauSedang">Galeri</a>
+                <a href="pendaftaran.html" class="btn-utama text-center mt-1 py-2.5">Daftar Santri Baru</a>
             </div>
         </div>
     </header>
 
     <!-- Bagian Judul Halaman -->
-    <section class="bg-utama-abuMuda py-16 lengkung-bawah">
-        <div class="container mx-auto px-6 lg:px-12 text-center muncul">
+    <section class="bg-utama-abuMuda py-12 md:py-16">
+        <div class="container mx-auto px-4 md:px-6 lg:px-12 text-center muncul">
             <h2 class="text-[clamp(2rem,5vw,3rem)] font-extrabold text-utama-hijauTua mb-4">Galeri Dokumentasi</h2>
             <div class="garis-pemisah mx-auto mb-6"></div>
-            <p class="text-lg text-gray-700 max-w-2xl mx-auto">Kumpulan foto dan momen-momen berharga selama kegiatan belajar, beribadah, dan kebersamaan di Pondok Pesantren Sunan Gringsing</p>
+            <p class="text-base md:text-lg text-gray-700 max-w-2xl mx-auto px-2">Kumpulan foto dan momen-momen berharga selama kegiatan belajar, beribadah, dan kebersamaan di Pondok Pesantren Sunan Gringsing</p>
         </div>
     </section>
 
     <!-- Bagian Galeri Foto -->
-    <section class="py-20">
-        <div class="container mx-auto px-6 lg:px-12">
-            <!-- Kategori 1: Lingkungan & Gedung -->
-            <div class="mb-16">
-                <h3 class="text-2xl font-bold text-utama-hijauTua mb-8 muncul">🏡 Lingkungan & Gedung Pesantren</h3>
-                <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <section class="py-12 md:py-16 lg:py-20">
+        <div class="container mx-auto px-4 md:px-6 lg:px-12">
+            <!-- Kategori 1: Lingkungan & Gedung (Hanya 2 Foto) -->
+            <div class="mb-12 md:mb-16">
+                <h3 class="text-xl md:text-2xl font-bold text-utama-hijauTua mb-6 md:mb-8 muncul"> Lingkungan & Gedung Pesantren</h3>
+                <div class="grid sm:grid-cols-2 gap-6 md:gap-8">
                     <!-- Foto 1 -->
-                    <div class="galeri-item muncul" style="animation-delay: 0.2s">
-                        <div class="aspect-square bg-gradient-to-br from-utama-hijauTua/80 to-utama-hijauSedang/80 flex items-center justify-center text-white text-5xl">🏢</div>
+                    <a href="assets/images/gedung-utama.jpg" target="_blank" class="galeri-item muncul" style="animation-delay: 0.2s">
+                        <img 
+                            src="assets/images/gedung-utama.jpg" 
+                            alt="Gedung Utama" 
+                            class="w-full h-64 md:h-72 object-cover"
+                        >
                         <div class="galeri-caption">
-                            <h4 class="font-semibold">Gedung Utama</h4>
+                            <h4 class="font-semibold text-lg">Gedung Utama</h4>
                             <p class="text-sm opacity-90">Tempat belajar dan kegiatan pengajian</p>
                         </div>
-                    </div>
+                    </a>
                     <!-- Foto 2 -->
-                    <div class="galeri-item muncul" style="animation-delay: 0.3s">
-                        <div class="aspect-square bg-gradient-to-br from-utama-hijauTua/80 to-utama-hijauSedang/80 flex items-center justify-center text-white text-5xl">🕌</div>
+                    <a href="assets/images/mesjid.jpg" target="_blank" class="galeri-item muncul" style="animation-delay: 0.3s">
+                        <img 
+                            src="assets/images/mesjid.jpg.jpeg" 
+                            alt="Masjid" 
+                            class="w-full h-64 md:h-72 object-cover"
+                        >
                         <div class="galeri-caption">
-                            <h4 class="font-semibold">Masjid</h4>
+                            <h4 class="font-semibold text-lg">Masjid</h4>
                             <p class="text-sm opacity-90">Tempat ibadah berjamaah sehari-hari</p>
                         </div>
-                    </div>
-                    <!-- Foto 3 -->
-                    <div class="galeri-item muncul" style="animation-delay: 0.4s">
-                        <div class="aspect-square bg-gradient-to-br from-utama-hijauTua/80 to-utama-hijauSedang/80 flex items-center justify-center text-white text-5xl">🏘️</div>
-                        <div class="galeri-caption">
-                            <h4 class="font-semibold">Asrama Santri</h4>
-                            <p class="text-sm opacity-90">Tempat tinggal yang nyaman dan kondusif</p>
-                        </div>
-                    </div>
-                    <!-- Foto 4 -->
-                    <div class="galeri-item muncul" style="animation-delay: 0.5s">
-                        <div class="aspect-square bg-gradient-to-br from-utama-hijauTua/80 to-utama-hijauSedang/80 flex items-center justify-center text-white text-5xl">🌳</div>
-                        <div class="galeri-caption">
-                            <h4 class="font-semibold">Halaman & Taman</h4>
-                            <p class="text-sm opacity-90">Lingkungan asri dan sejuk untuk istirahat</p>
-                        </div>
-                    </div>
+                    </a>
                 </div>
             </div>
 
             <!-- Kategori 2: Kegiatan Harian -->
-            <div class="mb-16">
-                <h3 class="text-2xl font-bold text-utama-hijauTua mb-8 muncul">📚 Kegiatan Belajar & Beribadah</h3>
-                <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div class="mb-12 md:mb-16">
+                <h3 class="text-xl md:text-2xl font-bold text-utama-hijauTua mb-6 md:mb-8 muncul">Kegiatan Belajar & Beribadah</h3>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
                     <!-- Foto 1 -->
-                    <div class="galeri-item muncul" style="animation-delay: 0.2s">
-                        <div class="aspect-square bg-gradient-to-br from-utama-hijauTua/80 to-utama-hijauSedang/80 flex items-center justify-center text-white text-5xl">📖</div>
+                    <a href="assets/images/kegiatan-kitab.jpg" target="_blank" class="galeri-item muncul" style="animation-delay: 0.2s">
+                        <img 
+                            src="assets/images/kegiatan-kitab.jpg" 
+                            alt="Belajar Kitab Kuning" 
+                            class="w-full h-56 md:h-60 object-cover"
+                        >
                         <div class="galeri-caption">
                             <h4 class="font-semibold">Belajar Kitab Kuning</h4>
                             <p class="text-sm opacity-90">Memperdalam ilmu agama bersama pengajar</p>
                         </div>
-                    </div>
+                    </a>
                     <!-- Foto 2 -->
-                    <div class="galeri-item muncul" style="animation-delay: 0.3s">
-                        <div class="aspect-square bg-gradient-to-br from-utama-hijauTua/80 to-utama-hijauSedang/80 flex items-center justify-center text-white text-5xl">🤲</div>
+                    <a href="assets/images/sholat-berjamaah.jpg" target="_blank" class="galeri-item muncul" style="animation-delay: 0.3s">
+                        <img 
+                            src="assets/images/sholat-berjamaah.jpg" 
+                            alt="Sholat Berjamaah" 
+                            class="w-full h-56 md:h-60 object-cover"
+                        >
                         <div class="galeri-caption">
                             <h4 class="font-semibold">Sholat Berjamaah</h4>
                             <p class="text-sm opacity-90">Memperkuat kebersamaan dan ibadah</p>
                         </div>
-                    </div>
+                    </a>
                     <!-- Foto 3 -->
-                    <div class="galeri-item muncul" style="animation-delay: 0.4s">
-                        <div class="aspect-square bg-gradient-to-br from-utama-hijauTua/80 to-utama-hijauSedang/80 flex items-center justify-center text-white text-5xl">🗣️</div>
+                    <a href="assets/images/pidato.jpg" target="_blank" class="galeri-item muncul" style="animation-delay: 0.4s">
+                        <img 
+                            src="assets/images/pidato.jpg" 
+                            alt="Latihan Pidato" 
+                            class="w-full h-56 md:h-60 object-cover"
+                        >
                         <div class="galeri-caption">
                             <h4 class="font-semibold">Latihan Pidato</h4>
                             <p class="text-sm opacity-90">Melatih kepercayaan diri dan berkomunikasi</p>
                         </div>
-                    </div>
+                    </a>
                     <!-- Foto 4 -->
-                    <div class="galeri-item muncul" style="animation-delay: 0.5s">
-                        <div class="aspect-square bg-gradient-to-br from-utama-hijauTua/80 to-utama-hijauSedang/80 flex items-center justify-center text-white text-5xl">📝</div>
+                    <a href="assets/images/kelas-umum.jpg" target="_blank" class="galeri-item muncul" style="animation-delay: 0.5s">
+                        <img 
+                            src="assets/images/kelas-umum.jpg" 
+                            alt="Kelas Umum" 
+                            class="w-full h-56 md:h-60 object-cover"
+                        >
                         <div class="galeri-caption">
                             <h4 class="font-semibold">Kelas Umum</h4>
                             <p class="text-sm opacity-90">Mempelajari ilmu pengetahuan umum</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
 
             <!-- Kategori 3: Acara Khusus -->
             <div>
-                <h3 class="text-2xl font-bold text-utama-hijauTua mb-8 muncul">🎉 Acara & Kegiatan Tahunan</h3>
-                <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <h3 class="text-xl md:text-2xl font-bold text-utama-hijauTua mb-6 md:mb-8 muncul">🎉 Acara & Kegiatan Tahunan</h3>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
                     <!-- Foto 1 -->
-                    <div class="galeri-item muncul" style="animation-delay: 0.2s">
-                        <div class="aspect-square bg-gradient-to-br from-utama-hijauTua/80 to-utama-hijauSedang/80 flex items-center justify-center text-white text-5xl">🌙</div>
+                    <a href="assets/images/ramadhan.jpg" target="_blank" class="galeri-item muncul" style="animation-delay: 0.2s">
+                        <img 
+                            src="assets/images/ramadhan.jpg" 
+                            alt="Kegiatan Ramadhan" 
+                            class="w-full h-56 md:h-60 object-cover"
+                        >
                         <div class="galeri-caption">
                             <h4 class="font-semibold">Kegiatan Ramadhan</h4>
                             <p class="text-sm opacity-90">Perbanyak ibadah dan santunan masyarakat</p>
                         </div>
-                    </div>
+                    </a>
                     <!-- Foto 2 -->
-                    <div class="galeri-item muncul" style="animation-delay: 0.3s">
-                        <div class="aspect-square bg-gradient-to-br from-utama-hijauTua/80 to-utama-hijauSedang/80 flex items-center justify-center text-white text-5xl">🎓</div>
+                    <a href="assets/images/wisuda.jpg" target="_blank" class="galeri-item muncul" style="animation-delay: 0.3s">
+                        <img 
+                            src="assets/images/wisuda.jpg" 
+                            alt="Wisuda Santri" 
+                            class="w-full h-56 md:h-60 object-cover"
+                        >
                         <div class="galeri-caption">
                             <h4 class="font-semibold">Wisuda Santri</h4>
                             <p class="text-sm opacity-90">Penutupan tahun ajaran dan penyerahan ijazah</p>
                         </div>
-                    </div>
+                    </a>
                     <!-- Foto 3 -->
-                    <div class="galeri-item muncul" style="animation-delay: 0.4s">
-                        <div class="aspect-square bg-gradient-to-br from-utama-hijauTua/80 to-utama-hijauSedang/80 flex items-center justify-center text-white text-5xl">🤝</div>
+                    <a href="assets/images/kerja-bakti.jpg" target="_blank" class="galeri-item muncul" style="animation-delay: 0.4s">
+                        <img 
+                            src="assets/images/kerja-bakti.jpg" 
+                            alt="Kerja Bakti" 
+                            class="w-full h-56 md:h-60 object-cover"
+                        >
                         <div class="galeri-caption">
                             <h4 class="font-semibold">Kerja Bakti</h4>
                             <p class="text-sm opacity-90">Merawat lingkungan bersama-sama</p>
                         </div>
-                    </div>
+                    </a>
                     <!-- Foto 4 -->
-                    <div class="galeri-item muncul" style="animation-delay: 0.5s">
-                        <div class="aspect-square bg-gradient-to-br from-utama-hijauTua/80 to-utama-hijauSedang/80 flex items-center justify-center text-white text-5xl">🏃</div>
+                    <a href="assets/images/olahraga.jpg" target="_blank" class="galeri-item muncul" style="animation-delay: 0.5s">
+                        <img 
+                            src="assets/images/olahraga.jpg" 
+                            alt="Kegiatan Olahraga" 
+                            class="w-full h-56 md:h-60 object-cover"
+                        >
                         <div class="galeri-caption">
                             <h4 class="font-semibold">Kegiatan Olahraga</h4>
                             <p class="text-sm opacity-90">Menjaga kesehatan dan kebugaran tubuh</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Bagian Penutup -->
-    <section class="py-16 bg-utama-abuMuda text-center">
-        <div class="container mx-auto px-6 lg:px-12 max-w-3xl muncul">
-            <h3 class="text-2xl font-bold text-utama-hijauTua mb-4">Ingin Bergabung Bersama Kami?</h3>
+    <section class="py-12 md:py-16 bg-utama-abuMuda text-center">
+        <div class="container mx-auto px-4 md:px-6 lg:px-12 max-w-3xl muncul">
+            <h3 class="text-xl md:text-2xl font-bold text-utama-hijauTua mb-4">Ingin Bergabung Bersama Kami?</h3>
             <div class="garis-pemisah mx-auto mb-6"></div>
-            <p class="text-gray-700 text-lg leading-relaxed mb-8">
+            <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-6 md:mb-8 px-2">
                 Jadilah bagian dari keluarga besar Pondok Pesantren Sunan Gringsing untuk menuntut ilmu, membentuk akhlak mulia, dan mempersiapkan masa depan yang cerah.
             </p>
             <a href="pendaftaran.html" class="btn-utama">Lihat Informasi Pendaftaran</a>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gradient-to-br from-utama-hijauTua to-utama-hijauSedang text-utama-putih py-12 lengkung-atas">
-        <div class="container mx-auto px-6 lg:px-12 text-center">
-            <h4 class="text-2xl font-bold mb-3">Pondok Pesantren Sunan Gringsing</h4>
-            <p class="text-white/90 max-w-xl mx-auto mb-6">Mencetak generasi yang berilmu, berakhlak mulia, dan bermanfaat bagi masyarakat</p>
-            <div class="w-40 h-0.5 bg-white/30 mx-auto mb-6 rounded-full"></div>
-            <p class="text-sm text-white/80">&copy; 2026 Ponpes Sunan Gringsing. Semua Hak Dilindungi.</p>
-            <p class="text-xs text-white/65 mt-2">Berlandaskan Ahlussunnah wal Jama'ah Nahdlatul Ulama</p>
+    <!-- Footer Sama Persis Halaman Beranda & Responsif -->
+    <footer class="bg-gradient-to-br from-utama-hijauTua via-utama-hijauSedang to-utama-hitam text-utama-putih py-6 md:py-8">
+        <div class="max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-5 md:gap-6 text-center md:text-left">
+                <div>
+                    <h4 class="text-lg md:text-xl font-bold mb-2">Ponpes Sunan Gringsing</h4>
+                    <p class="text-white/90 leading-relaxed text-sm">Mencetak generasi yang berilmu, berakhlak mulia, dan bermanfaat bagi agama, bangsa, dan negara.</p>
+                </div>
+                        
+                <div>
+                    <h5 class="text-base md:text-lg font-semibold mb-2">Lokasi Kami</h5>
+                    <a
+                        href="https://www.google.com/maps/place/J8FW%2B63F+Gemuruh,+Padamara,+Kabupaten+Purbalingga,+Jawa+Tengah"
+                        target="_blank"
+                        class="flex items-center justify-center md:justify-start gap-2.5 text-white/90 hover:text-white transition-colors text-sm group"
+                    >
+                        <div class="lokasi-icon">
+                            <img
+                                src="assets/images/mapsnew.jpg"
+                                alt="Google Maps"
+                                class="w-5 h-5 md:w-6 md:h-6 object-contain"
+                            >
+                        </div>
+                        <p class="leading-relaxed text-left">J8FW+63F, Jalan, Dusun III, Gemuruh, Padamara, Purbalingga, Jawa Tengah 53372</p>
+                    </a>
+                </div>
+                        
+                <div>
+                    <h5 class="text-base md:text-lg font-semibold mb-2">Ikuti Kami</h5>
+                    <div class="flex gap-3 justify-center md:justify-start">
+                        <a href="https://www.instagram.com/pp_sunangringsing/" target="_blank" class="medsos-icon" title="Instagram">
+                            <img src="assets/images/instagram.jpg" alt="Instagram" class="w-full h-full object-cover">
+                        </a>
+                        <a href="https://www.tiktok.com/@pp.sunan.gringsin" target="_blank" class="medsos-icon" title="TikTok">
+                            <img src="assets/images/tiktok.jpg" alt="TikTok" class="w-full h-full object-cover">
+                        </a>
+                        <a href="https://www.youtube.com/@PP.SunanGringsingPBG" target="_blank" class="medsos-icon" title="YouTube">
+                            <img src="assets/images/youtube.jpg" alt="YouTube" class="w-full h-full object-cover">
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61591697233123" target="_blank" class="medsos-icon" title="Facebook">
+                            <img src="assets/images/fb.jpg" alt="Facebook" class="w-full h-full object-cover">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full h-0.5 bg-white/30 mx-auto my-4 rounded-full"></div>
+            <div class="text-center">
+                <p class="text-xs text-white/80">&copy; 2026 Ponpes Sunan Gringsing. Semua Hak Dilindungi.</p>
+                <p class="text-[10px] text-white/65 mt-0.5">Berlandaskan Ahlussunnah wal Jama'ah Nahdlatul Ulama</p>
+            </div>
         </div>
     </footer>
-
+            
     <!-- Script Menu -->
     <script>
         const tombolMenu = document.getElementById('tombolMenu');

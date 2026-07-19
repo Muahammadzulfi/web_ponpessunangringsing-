@@ -75,10 +75,7 @@
                 @apply bg-utama-hijauSedang hover:bg-utama-hijauMint text-utama-putih font-medium py-2.5 px-5 md:py-3 md:px-7 rounded-full shadow-tombol hover:shadow-tombolHover transition-all duration-300 transform hover:-translate-y-0.5 text-sm md:text-base;
             }
             .btn-kedua {
-                @apply bg-utama-putih hover:bg-utama-abuMuda text-utama-hijauSedang font-medium py-2.5 px-5 md:py-3 md:px-7 rounded-full border border-utama-hijauSedang/20 shadow-lembut hover:shadow-sedang transition-all duration-300 w-full justify-center text-center text-sm md:text-base;
-            }
-            .btn-unduh {
-                @apply bg-utama-hijauSedang hover:bg-utama-hijauMint text-utama-putih font-medium py-2.5 px-5 md:py-3 md:px-7 rounded-full shadow-tombol hover:shadow-tombolHover transition-all duration-300 transform hover:-translate-y-0.5 inline-flex items-center justify-center gap-2 w-full text-sm md:text-base;
+                @apply bg-utama-hijauSedang hover:bg-utama-hijauMint text-utama-putih font-semibold py-4 px-6 md:py-5 md:px-8 rounded-full shadow-tombol hover:shadow-tombolHover transition-all duration-300 transform hover:-translate-y-1 text-base md:text-lg w-full flex items-center justify-center gap-3;
             }
 
             /* Animasi muncul */
@@ -192,7 +189,7 @@
                 <div class="muncul order-2 md:order-none" style="animation-delay: 0.4s">
                     <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-utama-hijauTua mb-5 sm:mb-6 text-center md:text-left">Informasi Lengkap Pendaftaran</h3>
                     
-                    <div class="space-y-3 sm:space-y-4 text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8 bg-utama-abuMuda/50 p-4 sm:p-5 rounded-2xl">
+                    <div class="space-y-3 sm:space-y-4 text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed mb-8 sm:mb-10 bg-utama-abuMuda/50 p-4 sm:p-5 rounded-2xl">
                         <p>📅 <strong>Waktu Pendaftaran:</strong> 1 Juni - 30 Juli 2026</p>
                         <p>🎓 <strong>Program:</strong> Ngaji Kitab Kuning & Tahfidz Juz 30</p>
                         <p>💰 <strong>Biaya Pendaftaran:</strong> Rp 50.000</p>
@@ -201,21 +198,18 @@
                         <p>📞 <strong>Kontak:</strong> +62 857-8659-4458 <br class="md:hidden"> Instagram: pp_sunangringsing</p>
                     </div>
 
-                    <!-- Tautan Google Drive -->
-                    <div class="bg-utama-abuMuda p-4 sm:p-5 md:p-6 rounded-2xl sm:rounded-3xl shadow-lembut mb-5 sm:mb-6 border-l-4 border-utama-hijauMint">
-                        <h4 class="text-base sm:text-lg md:text-xl font-semibold text-utama-hijauTua mb-2 sm:mb-3">📂 Unduh Dokumen Pendaftaran</h4>
-                        <p class="text-gray-600 mb-3 sm:mb-4 text-sm sm:text-base">Berisi panduan, formulir, dan persyaratan pendaftaran lengkap</p>
-                        <a href="https://drive.google.com/drive/folders/1zuovE_OxXvKapwO5P-4p5YrnH9otzkv0" target="_blank" class="btn-unduh">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
-                                <polyline points="13,2 13,9 20,9"></polyline>
+                    <!-- Tombol Formulir Online yang Diperbesar & Dipercantik -->
+                    <div class="bg-gradient-to-br from-utama-hijauTua/5 to-utama-hijauMint/5 p-6 sm:p-7 md:p-8 rounded-3xl shadow-sedang border border-utama-hijauSedang/10">
+                        <h4 class="text-lg sm:text-xl md:text-2xl font-bold text-utama-hijauTua mb-3 sm:mb-4 text-center">📝 Mulai Pendaftaran</h4>
+                        <p class="text-gray-600 text-center mb-5 sm:mb-6">Klik tombol di bawah untuk mengisi formulir pendaftaran secara daring</p>
+                        <a href="https://forms.gle/2PfMybVjMLAVyX2T6" target="_blank" class="btn-kedua">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                             </svg>
-                            Buka & Unduh Dokumen
+                            Isi Formulir Pendaftaran
                         </a>
-                        <p class="text-xs text-gray-500 mt-2 sm:mt-3">*Tautan akan terbuka di tab baru</p>
+                        <p class="text-xs text-gray-500 mt-4 text-center">*Tautan akan terbuka di halaman baru</p>
                     </div>
-
-                    <a href="https://forms.gle/2PfMybVjMLAVyX2T6" target="_blank" class="btn-kedua">Isi Formulir Online</a>
                 </div>
 
             </div>
