@@ -2,14 +2,16 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Kegiatan | Ponpes Sunan Gringsing</title>
-    <!-- Font Modern & Elegan -->
+    
+    <!-- Font & Library -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Konfigurasi Warna & Gaya Dasar -->
     <script>
         tailwind.config = {
             theme: {
@@ -20,7 +22,8 @@
                             hijauSedang: '#0B5D30',
                             hijauMint: '#10B981',
                             abuMuda: '#F8F9FA',
-                            putih: '#FFFFFF'
+                            putih: '#FFFFFF',
+                            hitam: '#121212'
                         }
                     },
                     fontFamily: {
@@ -37,63 +40,50 @@
                         'dalam': '0 12px 35px rgba(10, 77, 39, 0.12)',
                         'tombol': '0 4px 12px rgba(11, 93, 48, 0.15)',
                         'tombolHover': '0 6px 20px rgba(16, 185, 129, 0.22)'
+                    },
+                    screens: {
+                        'xs': '360px',
+                        'sm': '480px',
+                        'md': '768px',
+                        'lg': '1024px'
                     }
                 }
             }
         }
     </script>
+
+    <!-- Gaya Khusus Tambahan -->
     <style type="text/tailwindcss">
         @layer utilities {
-            /* Pola latar sangat halus */
             .pola-latar {
                 background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%230A4D27' fill-opacity='0.02'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.31 0-6 2.69-6 6s2.69 6 6 6c2.21 0 4-1.79 4-4zm20 0c0-2.21-1.79-4-4-4-3.31 0-6 2.69-6 6s2.69 6 6 6c2.21 0 4-1.79 4-4zm20 0c0-2.21-1.79-4-4-4-3.31 0-6 2.69-6 6s2.69 6 6 6c2.21 0 4-1.79 4-4z'/%3E%3C/g%3E%3C/svg%3E");
             }
-
-            /* Garis pemisah modern */
             .garis-pemisah {
                 height: 2px;
                 width: 80px;
                 background: linear-gradient(90deg, #0B5D30, #10B981);
                 border-radius: 9999px;
+                margin-left: auto;
+                margin-right: auto;
             }
-
-            /* Lengkungan alami */
             .lengkung-bawah {
                 border-bottom-left-radius: 50% 10%;
                 border-bottom-right-radius: 50% 10%;
             }
-            .lengkung-atas {
-                border-top-left-radius: 50% 10%;
-                border-top-right-radius: 50% 10%;
-            }
-
-            /* Navigasi */
             .nav-link {
-                @apply px-5 py-2 rounded-full font-medium text-gray-700 transition-all duration-300 hover:bg-utama-abuMuda hover:text-utama-hijauSedang hover:shadow-lembut;
+                @apply px-3 sm:px-4 md:px-5 py-2 rounded-full font-medium text-gray-700 transition-all duration-300 hover:bg-utama-abuMuda hover:text-utama-hijauSedang hover:shadow-lembut text-sm md:text-base;
             }
-
-            /* Tombol */
             .btn-utama {
-                @apply bg-utama-hijauSedang hover:bg-utama-hijauMint text-utama-putih font-medium py-3 px-8 rounded-full shadow-tombol hover:shadow-tombolHover transition-all duration-300 transform hover:-translate-y-0.5;
+                @apply bg-utama-hijauSedang hover:bg-utama-hijauMint text-utama-putih font-medium py-2.5 px-6 md:py-3 md:px-8 rounded-full shadow-tombol hover:shadow-tombolHover transition-all duration-300 transform hover:-translate-y-0.5 text-sm md:text-base;
             }
-            .btn-kedua {
-                @apply bg-utama-putih hover:bg-utama-abuMuda text-utama-hijauSedang font-medium py-3 px-8 rounded-full border border-utama-hijauSedang/20 shadow-lembut hover:shadow-sedang transition-all duration-300;
-            }
-
-            /* Animasi muncul */
             .muncul {
                 animation: fadeInUp 0.8s ease-out forwards;
                 opacity: 0;
                 transform: translateY(20px);
             }
             @keyframes fadeInUp {
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
+                to { opacity: 1; transform: translateY(0); }
             }
-
-            /* Animasi gerak halus */
             .animasi-gerak {
                 animation: gerakHalus 6s ease-in-out infinite alternate;
             }
@@ -101,170 +91,214 @@
                 0% { transform: translateY(0); }
                 100% { transform: translateY(-8px); }
             }
+            .medsos-icon, .lokasi-icon {
+                @apply w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/20 flex items-center justify-center overflow-hidden transition-all duration-300 hover:scale-110 hover:shadow-lg;
+            }
+            .ikon-kegiatan {
+                @apply w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-br from-utama-hijauTua to-utama-hijauSedang rounded-2xl flex items-center justify-center text-utama-putih mb-4 sm:mb-6 animasi-gerak;
+            }
         }
     </style>
 </head>
 <body class="font-inter bg-utama-putih text-gray-800 pola-latar">
 
-    <!-- Navigasi -->
+    <!-- 🧭 Bagian Navigasi / Menu Atas -->
     <header class="sticky top-0 z-50 bg-utama-putih/90 backdrop-blur-md shadow-lembut">
-        <div class="container mx-auto px-6 lg:px-12">
-            <nav class="flex justify-between items-center h-20 md:h-24">
-                <!-- Logo & Nama -->
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 bg-gradient-to-br from-utama-hijauTua to-utama-hijauSedang rounded-2xl flex items-center justify-center text-utama-putih font-bold text-xl shadow-sedang">
-                        PSG
+        <div class="container mx-auto px-3 sm:px-4 md:px-6 lg:px-12">
+            <nav class="flex justify-between items-center h-14 sm:h-16 md:h-20 lg:h-24">
+                <!-- Logo & Nama Pondok -->
+                <div class="flex items-center gap-2 sm:gap-3 md:gap-4">
+                    <div class="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-2xl overflow-hidden shadow-sedang">
+                        <img src="assets/images/logo sunan.jpg" alt="Logo Ponpes Sunan Gringsing" class="w-full h-full object-cover">
                     </div>
                     <div>
-                        <h1 class="text-lg md:text-xl font-bold text-utama-hijauTua tracking-wide">PONPES SUNAN GRINGSING</h1>
+                        <h1 class="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-utama-hijauTua tracking-wide">PONPES SUNAN GRINGSING</h1>
                     </div>
                 </div>
 
-                <!-- Menu Desktop -->
-                <div class="hidden md:flex items-center gap-1">
+                <!-- Menu untuk Layar Besar -->
+                <div class="hidden md:flex items-center gap-1 lg:gap-2">
                     <a href="index.html" class="nav-link">Beranda</a>
                     <a href="profil.html" class="nav-link">Profil</a>
                     <a href="program.html" class="nav-link">Program</a>
                     <a href="kegiatan.html" class="nav-link bg-utama-abuMuda text-utama-hijauSedang">Kegiatan</a>
                     <a href="galeri.html" class="nav-link">Galeri</a>
-                    <a href="pendaftaran.html" class="btn-utama ml-2">Daftar Santri</a>
+                    <a href="pendaftaran.html" class="btn-utama ml-1 md:ml-2">Daftar Santri</a>
                 </div>
 
-                <!-- Tombol Menu HP -->
-                <button id="tombolMenu" class="md:hidden text-utama-hijauSedang text-3xl">☰</button>
+                <!-- Tombol Menu untuk HP -->
+                <button id="tombolMenu" class="md:hidden text-utama-hijauSedang text-xl sm:text-2xl">☰</button>
             </nav>
         </div>
 
-        <!-- Menu Mobile -->
-        <div id="menuHP" class="hidden bg-utama-putih shadow-sedang absolute w-full left-0 rounded-b-4xl overflow-hidden">
-            <div class="container mx-auto px-6 py-5 flex flex-col gap-3">
-                <a href="index.html" class="nav-link text-center">Beranda</a>
-                <a href="profil.html" class="nav-link text-center">Profil</a>
-                <a href="program.html" class="nav-link text-center">Program</a>
-                <a href="kegiatan.html" class="nav-link text-center bg-utama-abuMuda text-utama-hijauSedang">Kegiatan</a>
-                <a href="galeri.html" class="nav-link text-center">Galeri</a>
-                <a href="pendaftaran.html" class="btn-utama text-center mt-2">Daftar Santri Baru</a>
+        <!-- Tampilan Menu Saat HP Dibuka -->
+        <div id="menuHP" class="hidden bg-utama-putih shadow-sedang absolute w-full left-0 rounded-b-4xl overflow-hidden z-40">
+            <div class="container mx-auto px-3 sm:px-4 py-3 sm:py-4 flex flex-col gap-2">
+                <a href="index.html" class="nav-link text-center py-2.5">Beranda</a>
+                <a href="profil.html" class="nav-link text-center py-2.5">Profil</a>
+                <a href="program.html" class="nav-link text-center py-2.5">Program</a>
+                <a href="kegiatan.html" class="nav-link text-center py-2.5 bg-utama-abuMuda text-utama-hijauSedang">Kegiatan</a>
+                <a href="galeri.html" class="nav-link text-center py-2.5">Galeri</a>
+                <a href="pendaftaran.html" class="btn-utama text-center mt-1 py-2.5">Daftar Santri Baru</a>
             </div>
         </div>
     </header>
 
-    <!-- Bagian Judul Halaman -->
-    <section class="bg-utama-abuMuda py-16 lengkung-bawah">
-        <div class="container mx-auto px-6 lg:px-12 text-center muncul">
-            <h2 class="text-[clamp(2rem,5vw,3rem)] font-extrabold text-utama-hijauTua mb-4">Kegiatan Santri</h2>
-            <div class="garis-pemisah mx-auto mb-6"></div>
-            <p class="text-lg text-gray-700 max-w-2xl mx-auto">Berbagai kegiatan rutin dan tahunan yang membentuk kedisiplinan, keilmuan, dan kebersamaan antar santri</p>
+    <!-- 📝 Judul Halaman -->
+    <section class="bg-utama-abuMuda py-10 sm:py-12 md:py-16 lengkung-bawah">
+        <div class="container mx-auto px-3 sm:px-4 md:px-6 lg:px-12 text-center muncul">
+            <h2 class="text-[clamp(1.75rem,5vw,3rem)] font-extrabold text-utama-hijauTua mb-3 sm:mb-4">Kegiatan Santri</h2>
+            <div class="garis-pemisah mx-auto mb-4 sm:mb-6"></div>
+            <p class="text-sm sm:text-base md:text-lg text-gray-700 max-w-2xl mx-auto px-2">Berbagai kegiatan rutin dan tahunan yang membentuk kedisiplinan, keilmuan, dan akhlak santri</p>
         </div>
     </section>
 
-    <!-- Bagian Kegiatan Rutin -->
-    <section class="py-20">
-        <div class="container mx-auto px-6 lg:px-12">
-            <div class="text-center mb-12 muncul">
-                <h3 class="text-3xl font-bold text-utama-hijauTua mb-4">Kegiatan Harian & Mingguan</h3>
+    <!-- 📋 Bagian Utama: Daftar Kegiatan -->
+    <section class="py-12 sm:py-16 md:py-20">
+        <div class="container mx-auto px-3 sm:px-4 md:px-6 lg:px-12">
+            <div class="text-center mb-8 sm:mb-10 md:mb-12 muncul">
+                <h3 class="text-2xl sm:text-3xl font-bold text-utama-hijauTua mb-3 sm:mb-4">Jadwal Kegiatan Rutin</h3>
                 <div class="garis-pemisah mx-auto"></div>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Kegiatan 1 -->
-                <div class="muncul bg-utama-abuMuda rounded-4xl p-8 shadow-lembut hover:shadow-sedang transition-all duration-300 hover:-translate-y-2" style="animation-delay: 0.2s">
-                    <div class="w-16 h-16 bg-gradient-to-br from-utama-hijauTua to-utama-hijauSedang rounded-2xl flex items-center justify-center text-utama-putih text-2xl mb-6 animasi-gerak">🌅</div>
-                    <h4 class="text-xl font-bold text-utama-hijauTua mb-3">Kegiatan Pagi</h4>
-                    <p class="text-gray-700 leading-relaxed">Dimulai dengan sholat Subuh berjamaah, dilanjutkan dengan membaca Al-Qur'an, dzikir, dan pengajian pagi sebelum memulai pelajaran.</p>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 md:gap-8">
+                
+                <!-- 🕒 Kegiatan Harian -->
+                <div class="muncul bg-utama-abuMuda rounded-4xl p-5 sm:p-6 md:p-8 shadow-lembut hover:shadow-sedang transition-all duration-300 hover:-translate-y-2" style="animation-delay: 0.2s">
+                    <div class="ikon-kegiatan">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="2" x2="12" y2="6"></line>
+                            <line x1="12" y1="18" x2="12" y2="22"></line>
+                            <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line>
+                            <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line>
+                            <line x1="2" y1="12" x2="6" y2="12"></line>
+                            <line x1="18" y1="12" x2="22" y2="12"></line>
+                            <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line>
+                            <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line>
+                        </svg>
+                    </div>
+                    <h4 class="text-lg sm:text-xl font-bold text-utama-hijauTua mb-3 text-center">Harian</h4>
+                    <ul class="list-disc pl-5 text-gray-700 space-y-2 text-sm sm:text-base">
+                        <li>Sholat</li>
+                        <li>Kajian Kitab bandongan</li>
+                        <li>Madin</li>
+                        <li>Tadarus Al-Qur'an</li>
+                    </ul>
                 </div>
 
-                <!-- Kegiatan 2 -->
-                <div class="muncul bg-utama-abuMuda rounded-4xl p-8 shadow-lembut hover:shadow-sedang transition-all duration-300 hover:-translate-y-2" style="animation-delay: 0.3s">
-                    <div class="w-16 h-16 bg-gradient-to-br from-utama-hijauTua to-utama-hijauSedang rounded-2xl flex items-center justify-center text-utama-putih text-2xl mb-6 animasi-gerak">📖</div>
-                    <h4 class="text-xl font-bold text-utama-hijauTua mb-3">Proses Belajar Mengajar</h4>
-                    <p class="text-gray-700 leading-relaxed">Kegiatan belajar berlangsung dari pagi hingga siang, meliputi ilmu agama dan ilmu umum dengan metode yang interaktif dan terarah.</p>
+                <!-- 📅 Kegiatan Mingguan -->
+                <div class="muncul bg-utama-abuMuda rounded-4xl p-5 sm:p-6 md:p-8 shadow-lembut hover:shadow-sedang transition-all duration-300 hover:-translate-y-2" style="animation-delay: 0.3s">
+                    <div class="ikon-kegiatan">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                    </div>
+                    <h4 class="text-lg sm:text-xl font-bold text-utama-hijauTua mb-3 text-center">Mingguan</h4>
+                    <ul class="list-disc pl-5 text-gray-700 space-y-2 text-sm sm:text-base">
+                        <li>Manakib</li>
+                        <li>Khataman TQN</li>
+                        <li>Ro'an</li>
+                        <li>Pengajian K.H.Drs. Rokhidin M.Si.</li>
+                    </ul>
                 </div>
 
-                <!-- Kegiatan 3 -->
-                <div class="muncul bg-utama-abuMuda rounded-4xl p-8 shadow-lembut hover:shadow-sedang transition-all duration-300 hover:-translate-y-2" style="animation-delay: 0.4s">
-                    <div class="w-16 h-16 bg-gradient-to-br from-utama-hijauTua to-utama-hijauSedang rounded-2xl flex items-center justify-center text-utama-putih text-2xl mb-6 animasi-gerak">🌇</div>
-                    <h4 class="text-xl font-bold text-utama-hijauTua mb-3">Kegiatan Sore & Malam</h4>
-                    <p class="text-gray-700 leading-relaxed">Sholat berjamaah, olahraga ringan, belajar mandiri, dan pengajian malam untuk memperdalam materi yang telah dipelajari di siang hari.</p>
+                <!-- 📖 Kegiatan Bulanan -->
+                <div class="muncul bg-utama-abuMuda rounded-4xl p-5 sm:p-6 md:p-8 shadow-lembut hover:shadow-sedang transition-all duration-300 hover:-translate-y-2" style="animation-delay: 0.4s">
+                    <div class="ikon-kegiatan">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5A2.5 2.5 0 0 0 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-lg sm:text-xl font-bold text-utama-hijauTua mb-3 text-center">Bulanan</h4>
+                    <ul class="list-disc pl-5 text-gray-700 space-y-2 text-sm sm:text-base">
+                        <li>Salasanan</li>
+                        <li>Rotibul Haddad</li>
+                        <li>Maulidur Rosul</li>
+                    </ul>
                 </div>
 
-                <!-- Kegiatan 4 -->
-                <div class="muncul bg-utama-abuMuda rounded-4xl p-8 shadow-lembut hover:shadow-sedang transition-all duration-300 hover:-translate-y-2" style="animation-delay: 0.5s">
-                    <div class="w-16 h-16 bg-gradient-to-br from-utama-hijauTua to-utama-hijauSedang rounded-2xl flex items-center justify-center text-utama-putih text-2xl mb-6 animasi-gerak">📢</div>
-                    <h4 class="text-xl font-bold text-utama-hijauTua mb-3">Pengajian Umum Mingguan</h4>
-                    <p class="text-gray-700 leading-relaxed">Setiap hari Jumat diadakan pengajian bersama yang diikuti oleh seluruh santri dan pengasuh untuk menambah wawasan keagamaan.</p>
-                </div>
-
-                <!-- Kegiatan 5 -->
-                <div class="muncul bg-utama-abuMuda rounded-4xl p-8 shadow-lembut hover:shadow-sedang transition-all duration-300 hover:-translate-y-2" style="animation-delay: 0.6s">
-                    <div class="w-16 h-16 bg-gradient-to-br from-utama-hijauTua to-utama-hijauSedang rounded-2xl flex items-center justify-center text-utama-putih text-2xl mb-6 animasi-gerak">🤝</div>
-                    <h4 class="text-xl font-bold text-utama-hijauTua mb-3">Kerja Bakti & Kebersamaan</h4>
-                    <p class="text-gray-700 leading-relaxed">Kegiatan merawat lingkungan pondok, membersihkan asrama, dan berbagi tugas untuk melatih rasa tanggung jawab dan kebersamaan.</p>
-                </div>
-
-                <!-- Kegiatan 6 -->
-                <div class="muncul bg-utama-abuMuda rounded-4xl p-8 shadow-lembut hover:shadow-sedang transition-all duration-300 hover:-translate-y-2" style="animation-delay: 0.7s">
-                    <div class="w-16 h-16 bg-gradient-to-br from-utama-hijauTua to-utama-hijauSedang rounded-2xl flex items-center justify-center text-utama-putih text-2xl mb-6 animasi-gerak">⚽</div>
-                    <h4 class="text-xl font-bold text-utama-hijauTua mb-3">Kegiatan Ekstrakurikuler</h4>
-                    <p class="text-gray-700 leading-relaxed">Olahraga, latihan pidato, kaligrafi, kesenian Islami, dan organisasi santri untuk mengembangkan bakat dan minat masing-masing.</p>
+                <!-- 🕌 Kegiatan Tahunan -->
+                <div class="muncul bg-utama-abuMuda rounded-4xl p-5 sm:p-6 md:p-8 shadow-lembut hover:shadow-sedang transition-all duration-300 hover:-translate-y-2" style="animation-delay: 0.5s">
+                    <div class="ikon-kegiatan">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
+                    <h4 class="text-lg sm:text-xl font-bold text-utama-hijauTua mb-3 text-center">Tahunan</h4>
+                    <ul class="list-disc pl-5 text-gray-700 space-y-2 text-sm sm:text-base">
+                        <li>Ziarah Wali Songo</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Bagian Kegiatan Tahunan -->
-    <section class="py-16 bg-utama-abuMuda">
-        <div class="container mx-auto px-6 lg:px-12">
-            <div class="text-center mb-12 muncul">
-                <h3 class="text-3xl font-bold text-utama-hijauTua mb-4">Kegiatan Tahunan</h3>
-                <div class="garis-pemisah mx-auto"></div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="muncul bg-utama-putih p-8 rounded-4xl shadow-sedang hover:shadow-dalam transition-shadow duration-300" style="animation-delay: 0.2s">
-                    <h4 class="text-2xl font-bold text-utama-hijauTua mb-4">Ramadhan & Idul Fitri</h4>
-                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
-                        <li>Puasa sunah dan ibadah malam secara berjamaah</li>
-                        <li>Program perbanyak bacaan dan hafalan Al-Qur'an</li>
-                        <li>Pembagian takjil dan santunan kepada masyarakat sekitar</li>
-                        <li>Persiapan dan perayaan hari raya Idul Fitri</li>
-                    </ul>
-                </div>
-
-                <div class="muncul bg-utama-putih p-8 rounded-4xl shadow-sedang hover:shadow-dalam transition-shadow duration-300" style="animation-delay: 0.4s">
-                    <h4 class="text-2xl font-bold text-utama-hijauTua mb-4">Acara Besar Lainnya</h4>
-                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
-                        <li>Peringatan hari-hari besar Islam</li>
-                        <li>Wisuda dan penilaian hasil belajar akhir tahun</li>
-                        <li>Perjalanan studi dan kunjungan ke tempat bersejarah</li>
-                        <li>Pelatihan keterampilan dan pengembangan diri</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Penutup -->
-    <section class="py-16 text-center muncul">
-        <div class="container mx-auto px-6 lg:px-12 max-w-3xl">
-            <p class="text-gray-700 text-lg leading-relaxed mb-6">
-                Semua kegiatan dirancang untuk menciptakan lingkungan yang kondusif, menyenangkan, dan tetap sesuai dengan nilai-nilai Islam, sehingga santri dapat tumbuh menjadi pribadi yang seimbang.
+    <!-- 📌 Kalimat Penutup & Tombol Aksi -->
+    <section class="py-12 sm:py-16 text-center muncul">
+        <div class="container mx-auto px-3 sm:px-4 md:px-6 lg:px-12 max-w-3xl">
+            <p class="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed mb-5 sm:mb-6 px-2">
+                Semua kegiatan dirancang untuk menciptakan lingkungan yang kondusif, menyenangkan, dan tetap sesuai dengan nilai-nilai Islam, sehingga santri dapat tumbuh menjadi pribadi yang berilmu dan berakhlak mulia.
             </p>
             <a href="galeri.html" class="btn-utama">Lihat Dokumentasi Kegiatan</a>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gradient-to-br from-utama-hijauTua to-utama-hijauSedang text-utama-putih py-12 lengkung-atas">
-        <div class="container mx-auto px-6 lg:px-12 text-center">
-            <h4 class="text-2xl font-bold mb-3">Pondok Pesantren Sunan Gringsing</h4>
-            <p class="text-white/90 max-w-xl mx-auto mb-6">Mencetak generasi yang berilmu, berakhlak mulia, dan bermanfaat bagi masyarakat</p>
-            <div class="w-40 h-0.5 bg-white/30 mx-auto mb-6 rounded-full"></div>
-            <p class="text-sm text-white/80">&copy; 2026 Ponpes Sunan Gringsing. Semua Hak Dilindungi.</p>
-            <p class="text-xs text-white/65 mt-2">Berlandaskan Ahlussunnah wal Jama'ah Nahdlatul Ulama</p>
+    <!-- 📍 Bagian Bawah / Footer -->
+    <footer class="bg-gradient-to-br from-utama-hijauTua via-utama-hijauSedang to-utama-hitam text-utama-putih py-6 md:py-8">
+        <div class="max-w-4xl mx-auto px-4 sm:px-5 md:px-8">
+            <div class="grid md:grid-cols-3 gap-5 md:gap-6 text-center md:text-left">
+                <div>
+                    <h4 class="text-lg md:text-xl font-bold mb-2">Ponpes Sunan Gringsing</h4>
+                    <p class="text-white/90 leading-relaxed text-sm">Mencetak generasi yang berilmu, berakhlak mulia, dan bermanfaat bagi agama, bangsa, dan negara.</p>
+                </div>
+                        
+                <div>
+                    <h5 class="text-base md:text-lg font-semibold mb-2">Lokasi Kami</h5>
+                    <a
+                        href="https://www.google.com/maps/place/J8FW%2B63F+Gemuruh,+Padamara,+Kabupaten+Purbalingga,+Jawa+Tengah"
+                        target="_blank"
+                        class="flex items-center justify-center md:justify-start gap-2.5 text-white/90 hover:text-white transition-colors text-sm group"
+                    >
+                        <div class="lokasi-icon">
+                            <img src="assets/images/mapsnew.jpg" alt="Google Maps" class="w-5 h-5 md:w-6 md:h-6 object-contain">
+                        </div>
+                        <p class="leading-relaxed text-left">J8FW+63F, Jalan, Dusun III, Gemuruh, Padamara, Purbalingga, Jawa Tengah 53372</p>
+                    </a>
+                </div>
+                        
+                <div>
+                    <h5 class="text-base md:text-lg font-semibold mb-2">Ikuti Kami</h5>
+                    <div class="flex gap-3 justify-center md:justify-start">
+                        <a href="https://www.instagram.com/pp_sunangringsing/" target="_blank" class="medsos-icon" title="Instagram">
+                            <img src="assets/images/instagram.jpg" alt="Instagram" class="w-full h-full object-cover">
+                        </a>
+                        <a href="https://www.tiktok.com/@pp.sunan.gringsin" target="_blank" class="medsos-icon" title="TikTok">
+                            <img src="assets/images/tiktok.jpg" alt="TikTok" class="w-full h-full object-cover">
+                        </a>
+                        <a href="https://www.youtube.com/@PP.SunanGringsingPBG" target="_blank" class="medsos-icon" title="YouTube">
+                            <img src="assets/images/youtube.jpg" alt="YouTube" class="w-full h-full object-cover">
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61591697233123" target="_blank" class="medsos-icon" title="Facebook">
+                            <img src="assets/images/fb.jpg" alt="Facebook" class="w-full h-full object-cover">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full h-0.5 bg-white/30 mx-auto my-4 rounded-full"></div>
+            <div class="text-center">
+                <p class="text-xs text-white/80">&copy; 2026 Ponpes Sunan Gringsing. Semua Hak Dilindungi.</p>
+                <p class="text-[10px] text-white/65 mt-0.5">Berlandaskan Ahlussunnah wal Jama'ah Nahdlatul Ulama</p>
+            </div>
         </div>
     </footer>
 
-    <!-- Script Menu -->
+    <!-- ⚡ Fungsi Interaktif -->
     <script>
         const tombolMenu = document.getElementById('tombolMenu');
         const menuHP = document.getElementById('menuHP');
@@ -273,5 +307,6 @@
             tombolMenu.textContent = menuHP.classList.contains('hidden') ? '☰' : '✕';
         });
     </script>
+
 </body>
 </html>

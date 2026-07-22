@@ -20,7 +20,8 @@
                             hijauSedang: '#0B5D30',
                             hijauMint: '#10B981',
                             abuMuda: '#F8F9FA',
-                            putih: '#FFFFFF'
+                            putih: '#FFFFFF',
+                            hitam: '#121212'
                         }
                     },
                     fontFamily: {
@@ -69,6 +70,11 @@
 
             .lokasi-icon {
                 @apply w-9 h-9 md:w-10 md:h-10 rounded-full bg-utama-hijauSedang/10 flex items-center justify-center overflow-hidden transition-all duration-300 hover:bg-utama-hijauSedang/20;
+            }
+
+            /* Gaya ikon sama persis halaman beranda */
+            .medsos-icon, .lokasi-icon-footer {
+                @apply w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/20 flex items-center justify-center overflow-hidden transition-all duration-300 hover:scale-110 hover:shadow-lg;
             }
         }
     </style>
@@ -149,7 +155,7 @@
                         >
                             <div class="lokasi-icon mt-1 md:mt-0 flex-shrink-0">
                                 <img 
-                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Google_Maps_icon_%282020%29.svg/1200px-Google_Maps_icon_%282020%29.svg.png" 
+                                    src="assets/images/mapsnew.jpg" 
                                     alt="Google Maps" 
                                     class="w-5 h-5 md:w-6 md:h-6 object-contain"
                                 >
@@ -180,39 +186,47 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gradient-to-br from-utama-hijauTua to-utama-hijauSedang text-utama-putih py-6 md:py-8">
+    <!-- Footer Sama Persis Seperti Halaman Beranda -->
+    <footer class="bg-gradient-to-br from-utama-hijauTua via-utama-hijauSedang to-utama-hitam text-utama-putih py-6 md:py-8">
         <div class="max-w-4xl mx-auto px-5 md:px-8">
             <div class="grid md:grid-cols-3 gap-5 md:gap-6 text-center md:text-left">
                 <div>
                     <h4 class="text-lg md:text-xl font-bold mb-2">Ponpes Sunan Gringsing</h4>
                     <p class="text-white/90 leading-relaxed text-sm">Mencetak generasi yang berilmu, berakhlak mulia, dan bermanfaat bagi agama, bangsa, dan negara.</p>
                 </div>
+                        
                 <div>
                     <h5 class="text-base md:text-lg font-semibold mb-2">Lokasi Kami</h5>
-                    <a 
-                        href="https://www.google.com/maps/place/J8FW%2B63F+Gemuruh,+Padamara,+Kabupaten+Purbalingga,+Jawa+Tengah" 
-                        target="_blank" 
+                    <a
+                        href="https://www.google.com/maps/place/J8FW%2B63F+Gemuruh,+Padamara,+Kabupaten+Purbalingga,+Jawa+Tengah"
+                        target="_blank"
                         class="flex items-center justify-center md:justify-start gap-2.5 text-white/90 hover:text-white transition-colors text-sm group"
                     >
-                        <div class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-white/20 flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:bg-white">
-                            <img 
-                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Google_Maps_icon_%282020%29.svg/1200px-Google_Maps_icon_%282020%29.svg.png" 
-                                alt="Google Maps" 
-                                class="w-4 h-4 md:w-5 md:h-5 object-contain"
+                        <div class="lokasi-icon-footer">
+                            <img
+                                src="assets/images/mapsnew.jpg"
+                                alt="Google Maps"
+                                class="w-5 h-5 md:w-6 md:h-6 object-contain"
                             >
                         </div>
                         <p class="leading-relaxed text-left">J8FW+63F, Jalan, Dusun III, Gemuruh, Padamara, Purbalingga, Jawa Tengah 53372</p>
                     </a>
                 </div>
+                        
                 <div>
                     <h5 class="text-base md:text-lg font-semibold mb-2">Ikuti Kami</h5>
                     <div class="flex gap-3 justify-center md:justify-start">
-                        <a href="https://www.instagram.com/pp_sunangringsing/" target="_blank" class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/20 flex items-center justify-center overflow-hidden transition-all duration-300 hover:scale-110 hover:shadow-lg" title="Instagram">
+                        <a href="https://www.instagram.com/pp_sunangringsing/" target="_blank" class="medsos-icon" title="Instagram">
                             <img src="assets/images/instagram.jpg" alt="Instagram" class="w-full h-full object-cover">
                         </a>
-                        <a href="https://www.tiktok.com/@pp.sunan.gringsin" target="_blank" class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/20 flex items-center justify-center overflow-hidden transition-all duration-300 hover:scale-110 hover:shadow-lg" title="TikTok">
+                        <a href="https://www.tiktok.com/@pp.sunan.gringsin" target="_blank" class="medsos-icon" title="TikTok">
                             <img src="assets/images/tiktok.jpg" alt="TikTok" class="w-full h-full object-cover">
+                        </a>
+                        <a href="https://www.youtube.com/@PP.SunanGringsingPBG" target="_blank" class="medsos-icon" title="YouTube">
+                            <img src="assets/images/youtube.jpg" alt="YouTube" class="w-full h-full object-cover">
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61591697233123" target="_blank" class="medsos-icon" title="Facebook">
+                            <img src="assets/images/fb.jpg" alt="Facebook" class="w-full h-full object-cover">
                         </a>
                     </div>
                 </div>
