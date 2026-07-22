@@ -20,7 +20,8 @@
                             hijauSedang: '#0B5D30',
                             hijauMint: '#10B981',
                             abuMuda: '#F8F9FA',
-                            putih: '#FFFFFF'
+                            putih: '#FFFFFF',
+                            hitam: '#121212'
                         }
                     },
                     fontFamily: {
@@ -79,14 +80,9 @@
                 }
             }
 
-            /* Ikon Media Sosial */
-            .medsos-icon {
-                @apply w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/20 flex items-center justify-center overflow-hidden transition-all duration-300 hover:scale-110 hover:bg-white;
-            }
-
-            /* Ikon Lokasi */
-            .lokasi-icon {
-                @apply w-8 h-8 md:w-9 md:h-9 rounded-full bg-white/20 flex items-center justify-center overflow-hidden transition-all duration-300 hover:bg-white;
+            /* Ikon Media Sosial & Lokasi - Sama persis halaman kegiatan */
+            .medsos-icon, .lokasi-icon {
+                @apply w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/20 flex items-center justify-center overflow-hidden transition-all duration-300 hover:scale-110 hover:shadow-lg;
             }
 
             /* Ikon Program */
@@ -232,7 +228,22 @@
                     </ul>
                 </div>
 
-                
+                <!-- Program 5 -->
+                <div class="muncul bg-utama-abuMuda rounded-3xl md:rounded-4xl p-6 md:p-8 shadow-lembut hover:shadow-sedang transition-all duration-300 hover:-translate-y-2" style="animation-delay: 0.6s">
+                    <div class="ikon-program mb-5 md:mb-6">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold text-utama-hijauTua mb-3 md:mb-4">Ilmu Umum & Keterampilan</h3>
+                    <p class="text-gray-700 leading-relaxed mb-3 md:mb-4 text-sm md:text-base">Membekali santri dengan pengetahuan umum dan keterampilan praktis agar mampu bersaing dan berkontribusi di tengah masyarakat.</p>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1 text-sm">
+                        <li>Pelajaran Matematika & Bahasa Indonesia</li>
+                        <li>Bahasa Arab & Bahasa Inggris</li>
+                        <li>Penggunaan teknologi informasi</li>
+                        <li>Wirausaha dan kemandirian</li>
+                    </ul>
+                </div>
 
                 <!-- Program 6 -->
                 <div class="muncul bg-utama-abuMuda rounded-3xl md:rounded-4xl p-6 md:p-8 shadow-lembut hover:shadow-sedang transition-all duration-300 hover:-translate-y-2" style="animation-delay: 0.7s">
@@ -268,36 +279,33 @@
         </div>
     </section>
 
-    <!-- Footer (Sama persis seperti halaman Index) -->
-    <footer class="bg-gradient-to-br from-utama-hijauTua to-utama-hijauSedang text-utama-putih py-6 md:py-8">
-        <div class="max-w-4xl mx-auto px-5 md:px-8">
+    <!-- 📍 Footer SAMA PERSIS seperti halaman Kegiatan -->
+    <footer class="bg-gradient-to-br from-utama-hijauTua via-utama-hijauSedang to-utama-hitam text-utama-putih py-6 md:py-8">
+        <div class="max-w-4xl mx-auto px-4 sm:px-5 md:px-8">
             <div class="grid md:grid-cols-3 gap-5 md:gap-6 text-center md:text-left">
-                <!-- Kolom 1: Tentang -->
                 <div>
                     <h4 class="text-lg md:text-xl font-bold mb-2">Ponpes Sunan Gringsing</h4>
                     <p class="text-white/90 leading-relaxed text-sm">Mencetak generasi yang berilmu, berakhlak mulia, dan bermanfaat bagi agama, bangsa, dan negara.</p>
                 </div>
-
-                <!-- Kolom 2: Lokasi & Maps -->
+                        
                 <div>
                     <h5 class="text-base md:text-lg font-semibold mb-2">Lokasi Kami</h5>
-                    <a 
-                        href="https://www.google.com/maps/place/J8FW%2B63F+Gemuruh,+Padamara,+Kabupaten+Purbalingga,+Jawa+Tengah" 
-                        target="_blank" 
+                    <a
+                        href="https://www.google.com/maps/place/J8FW%2B63F+Gemuruh,+Padamara,+Kabupaten+Purbalingga,+Jawa+Tengah"
+                        target="_blank"
                         class="flex items-center justify-center md:justify-start gap-2.5 text-white/90 hover:text-white transition-colors text-sm group"
                     >
                         <div class="lokasi-icon">
-                            <img 
-                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Google_Maps_icon_%282020%29.svg/1200px-Google_Maps_icon_%282020%29.svg.png" 
-                                alt="Google Maps" 
-                                class="w-4 h-4 md:w-5 md:h-5 object-contain"
+                            <img
+                                src="assets/images/mapsnew.jpg"
+                                alt="Google Maps"
+                                class="w-5 h-5 md:w-6 md:h-6 object-contain"
                             >
                         </div>
                         <p class="leading-relaxed text-left">J8FW+63F, Jalan, Dusun III, Gemuruh, Padamara, Purbalingga, Jawa Tengah 53372</p>
                     </a>
                 </div>
-
-                <!-- Kolom 3: Media Sosial -->
+                        
                 <div>
                     <h5 class="text-base md:text-lg font-semibold mb-2">Ikuti Kami</h5>
                     <div class="flex gap-3 justify-center md:justify-start">
@@ -307,12 +315,16 @@
                         <a href="https://www.tiktok.com/@pp.sunan.gringsin" target="_blank" class="medsos-icon" title="TikTok">
                             <img src="assets/images/tiktok.jpg" alt="TikTok" class="w-full h-full object-cover">
                         </a>
+                        <a href="https://www.youtube.com/@PP.SunanGringsingPBG" target="_blank" class="medsos-icon" title="YouTube">
+                            <img src="assets/images/youtube.jpg" alt="YouTube" class="w-full h-full object-cover">
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61591697233123" target="_blank" class="medsos-icon" title="Facebook">
+                            <img src="assets/images/fb.jpg" alt="Facebook" class="w-full h-full object-cover">
+                        </a>
                     </div>
                 </div>
             </div>
-
             <div class="w-full h-0.5 bg-white/30 mx-auto my-4 rounded-full"></div>
-
             <div class="text-center">
                 <p class="text-xs text-white/80">&copy; 2026 Ponpes Sunan Gringsing. Semua Hak Dilindungi.</p>
                 <p class="text-[10px] text-white/65 mt-0.5">Berlandaskan Ahlussunnah wal Jama'ah Nahdlatul Ulama</p>
@@ -329,5 +341,6 @@
             tombolMenu.textContent = menuHP.classList.contains('hidden') ? '☰' : '✕';
         });
     </script>
+
 </body>
 </html>
